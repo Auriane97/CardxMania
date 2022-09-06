@@ -2,10 +2,14 @@ package cardxMania.service;
 
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import cardxMania.dao.IDAOCompte;
 import cardxMania.exception.CompteException;
+import cardxMania.model.Compte;
 import cardxMania.model.User;
 
 @Service
@@ -16,7 +20,10 @@ public class UserService {
 	@Autowired
 	private IDAOCompte compteRepo;
 	
-	public
+	
+	public List<Compte> getAll() {
+		return compteRepo.findAll();
+	}
 	
 
 	public User getById(Integer id) {

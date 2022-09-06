@@ -42,9 +42,5 @@ public class CarteService {
 		
 	}
 	
-	//on va chercher les cartes avce le compte user associés
-	public Carte getByIdWithCompte(Integer id) {
-		return carteRepo.findByIdWithCompte(id).orElseThrow(CarteException::new);
-	}
-
+	
 }
