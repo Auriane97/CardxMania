@@ -63,4 +63,9 @@ import cardxMania.model.User;
 			return exemplaireRepo.findByValeurExemplaire(valeurExemplaire);
 		}
 		
+		public List<Exemplaire> getByEnVente(boolean enVente) {
+			return exemplaireRepo.findByEnVente(enVente);
+			
+		}
+		
 }
