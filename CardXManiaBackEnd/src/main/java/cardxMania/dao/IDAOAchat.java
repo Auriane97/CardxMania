@@ -7,8 +7,7 @@ import cardxMania.model.Achat;
 
 
 public interface IDAOAchat extends JpaRepository<Achat,Integer>{
-
-
+	
 	
 }
 
