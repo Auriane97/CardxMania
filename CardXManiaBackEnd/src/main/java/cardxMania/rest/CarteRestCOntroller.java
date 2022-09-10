@@ -52,15 +52,7 @@ public class CarteRestCOntroller {
 		return optCarte.get();
 	}
 
-	@JsonView(Views.ViewCarteWithCompte.class)
-	@GetMapping("/{id}/compte")
-	public Carte getByIdWithCompte(@PathVariable Integer id,
-			@RequestParam(name = "var", required = false, defaultValue = "") String var) {
-		
-		// Ajouter une condidtion
-		System.out.println(var);
-		return carteService.getByIdWithCompte(id);
-	}
+	
 
 	@ResponseStatus(code = HttpStatus.CREATED)
 	@PostMapping("")
