@@ -24,6 +24,6 @@ public interface IDAOExemplaire extends JpaRepository<Exemplaire,Integer> {
 	
 	public List<Exemplaire> findByEnVente(boolean enVente);
 	
-	public List<Exemplaire> findByEnVenteAndUser(boolean enVente);
+//	public List<Exemplaire> findByEnVenteAndUser(boolean enVente);
 	
 }
