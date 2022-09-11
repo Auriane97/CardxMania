@@ -16,8 +16,8 @@ public interface IDAOCarte extends JpaRepository<Carte,Integer>{
 	public List <Carte> findBySerie(Serie serie);
 	
 
-	@Query("select c from Carte c left join fetch c.compte where c.id=:id")
-	Optional<Carte> findByIdWithCompte(@Param("id") Integer id);
+//	@Query("select c from Carte c left join fetch c.compte where c.id=:id")
+//	Optional<Carte> findByIdWithCompte(@Param("id") Integer id);
 	
 //	@Query("select c from Carte c left join fetch c.dateAchat where c.dateAchat=: ")
 //	public void findByDate
