@@ -23,7 +23,7 @@ public class Lot {
 	private Integer id;
 	
 	@OneToMany(mappedBy = "lot")
-	@JsonView(Views.ViewAchat.class)
+	@JsonView(Views.ViewLotWithAchat.class)
 	private List<Achat> achats;
 	
 	@JsonView(Views.ViewBase.class)

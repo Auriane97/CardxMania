@@ -20,28 +20,32 @@ public abstract class Compte {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@JsonView(Views.ViewCompte.class)
+	@JsonView(Views.ViewBase.class)
 	protected Integer id;
 	
-	@JsonView(Views.ViewCompte.class)
+	@JsonView(Views.ViewBase.class)
 	protected String pseudo;
 	
-	@JsonView(Views.ViewCompte.class)
+	@JsonView(Views.ViewBase.class)
 	protected String password;
 	
-	@JsonView(Views.ViewCompte.class)
+	@JsonView(Views.ViewBase.class)
 	protected String mail;
 	
+	@JsonView(Views.ViewBase.class)
 	protected transient Integer total;
 	
+	
 	@OneToMany(mappedBy="user")
-	@JsonView(Views.ViewCompte.class)
+	@JsonView(Views.ViewCompteWithExemplaire.class)
 	protected List<Exemplaire> exemplaires;
 	
 	@OneToMany(mappedBy="vendeur")
+	@JsonView(Views.ViewCompteWithLot.class)
 	protected List<Lot> ventes;
 	
 	@OneToMany(mappedBy="acheteur")
+	@JsonView(Views.ViewCompteWithLot.class)
 	protected List<Lot> achats;
 	
 	

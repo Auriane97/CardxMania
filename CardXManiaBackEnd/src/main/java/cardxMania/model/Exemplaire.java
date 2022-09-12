@@ -27,7 +27,7 @@ public class Exemplaire {
 	private Integer id;
 	
 	@OneToMany(mappedBy="exemplaire")
-	@JsonView(Views.ViewExemplaire.class)
+	@JsonView(Views.ViewExemplaireWithAchat.class)
 	private List<Achat> achats;
 	
 	@ManyToOne
@@ -44,12 +44,13 @@ public class Exemplaire {
 	private Integer valeurExemplaire;
 	
 	@ManyToOne
-	@JsonView(Views.ViewCarte.class)
+	@JsonView(Views.ViewsExemplaireWithCarte.class)
 	private Carte carte;
 	
 
 	@Column(name = "etat", nullable = false, columnDefinition = "ENUM('Abimee','BonEtat','Neuf')")
 	@Enumerated(EnumType.STRING)
+	@JsonView(Views.ViewExemplaire.class)
 	private Etat etat;
 	
 

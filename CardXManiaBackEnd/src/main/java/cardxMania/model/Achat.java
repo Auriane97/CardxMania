@@ -15,16 +15,16 @@ public class Achat {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@JsonView(Views.ViewAchat.class)
+	@JsonView(Views.ViewBase.class)
 	private Integer id;
 	
 	@ManyToOne
-	@JsonView(Views.ViewAchat.class)
+	@JsonView(Views.ViewAchatWithExemplaire.class)
 	private Exemplaire exemplaire;
 	
 
 	@ManyToOne
-	@JsonView(Views.ViewAchat.class)
+	@JsonView(Views.ViewAchatWithLot.class)
 	private Lot lot;
 	
 
