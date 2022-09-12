@@ -11,24 +11,35 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 
 @Entity
 public class Lot {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(Views.ViewBase.class)
 	private Integer id;
 	
 	@OneToMany(mappedBy = "lot")
+	@JsonView(Views.ViewAchat.class)
 	private List<Achat> achats;
+	
+	@JsonView(Views.ViewBase.class)
 	private int note;
 
 	@ManyToOne
+	@JsonView(Views.ViewUser.class)
 	private User acheteur;
+	
 	@ManyToOne
+	@JsonView(Views.ViewUser.class)
 	private User vendeur;
 	
+	
 	@Column(name="date_achat")
+	@JsonView(Views.ViewBase.class)
 	private LocalDate dateAchat;
 
 	
