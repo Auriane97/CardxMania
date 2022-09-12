@@ -7,19 +7,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 
 @Entity
 public class Achat {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(Views.ViewAchat.class)
 	private Integer id;
 	
 	@ManyToOne
+	@JsonView(Views.ViewAchat.class)
 	private Exemplaire exemplaire;
 	
 
 	@ManyToOne
+	@JsonView(Views.ViewAchat.class)
 	private Lot lot;
 	
 

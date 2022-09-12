@@ -11,6 +11,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="type_compte", columnDefinition = "ENUM('Admin','User')")
@@ -18,15 +20,22 @@ public abstract class Compte {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(Views.ViewCompte.class)
 	protected Integer id;
 	
-	
+	@JsonView(Views.ViewCompte.class)
 	protected String pseudo;
+	
+	@JsonView(Views.ViewCompte.class)
 	protected String password;
+	
+	@JsonView(Views.ViewCompte.class)
 	protected String mail;
+	
 	protected transient Integer total;
 	
 	@OneToMany(mappedBy="user")
+	@JsonView(Views.ViewCompte.class)
 	protected List<Exemplaire> exemplaires;
 	
 	@OneToMany(mappedBy="vendeur")

@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 
 
 @Entity
@@ -18,21 +20,26 @@ public class Carte {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(Views.ViewCarte.class)
 	protected Integer id;
 	
+	@JsonView(Views.ViewCarte.class)
 	protected int cote;
-	
+	@JsonView(Views.ViewCarte.class)
 	protected String libelle;
 	
 	@Lob
 	private transient byte[] photo;
 	
+	@JsonView(Views.ViewCarte.class)
 	private String description;
 	
 	@OneToMany(mappedBy="carte")
+	@JsonView(Views.ViewCartewithExemplaire.class)
 	private List<Exemplaire> exemplaires;
 	
 	@Enumerated(EnumType.STRING)
+	@JsonView(Views.ViewCarte.class)
 	private Serie serie;
 	
 	
