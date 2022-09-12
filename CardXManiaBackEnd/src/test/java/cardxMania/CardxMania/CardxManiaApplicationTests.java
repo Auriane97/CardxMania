@@ -57,10 +57,10 @@ class CardxManiaApplicationTests {
 
 	@Test
 	public void carteCreation() {
-		carteService.create(new Carte(10, "Je suis la première carte test Magic.", Serie.Magic));
-		carteService.create(new Carte(20, "Je suis la première carte test Panini.", Serie.Panini));
-		carteService.create(new Carte(50, "Je suis la première carte test Pokemon.", Serie.Pokemon));
-		carteService.create(new Carte(5, "Je suis la première carte test Yugioh.", Serie.Yugioh));
+		carteService.create(new Carte(10,"Magic", "Je suis la première carte test Magic.", Serie.Magic));
+		carteService.create(new Carte(20,"Panini", "Je suis la première carte test Panini.", Serie.Panini));
+		carteService.create(new Carte(50,"Pokemon", "Je suis la première carte test Pokemon.", Serie.Pokemon));
+		carteService.create(new Carte(5,"yugi-oh", "Je suis la première carte test Yugioh.", Serie.Yugioh));
 	}
 	
 

@@ -22,6 +22,8 @@ public class Carte {
 	
 	protected int cote;
 	
+	protected String libelle;
+	
 	@Lob
 	private transient byte[] photo;
 	
@@ -36,11 +38,18 @@ public class Carte {
 	
 	public Carte() {}
 
-	public Carte(int cote, String description, Serie serie) {
+	
+
+	public Carte(int cote, String libelle, String description, Serie serie) {
+		super();
+		
 		this.cote = cote;
+		this.libelle = libelle;
 		this.description = description;
 		this.serie = serie;
 	}
+
+
 
 	public int getCote() {
 		return cote;
@@ -70,6 +79,14 @@ public class Carte {
 
 
 
+	public String getLibelle() {
+		return libelle;
+	}
+
+	public void setLibelle(String libelle) {
+		this.libelle = libelle;
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -95,7 +112,7 @@ public class Carte {
 //	}
 
 	public String toString() {
-		return "Carte [cote=" + cote + ", description=" + description + ", serie=" + serie + "]";
+		return "Carte [cote=" + cote + ", description=" + description + ", serie=" + serie + ", libelle=" + libelle + "]";
 	}
 	
 	
