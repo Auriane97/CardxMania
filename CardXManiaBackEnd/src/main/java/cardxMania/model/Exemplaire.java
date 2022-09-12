@@ -27,18 +27,24 @@ public class Exemplaire {
 	private Integer id;
 	
 	@OneToMany(mappedBy="exemplaire")
+	@JsonView(Views.ViewExemplaire.class)
 	private List<Achat> achats;
 	
 	@ManyToOne
+	@JsonView(Views.ViewUser.class)
 	private Compte user;
 	
 	@Column(name="en_vente")
+	@JsonView(Views.ViewBase.class)
 	private boolean enVente;
 	
+	
 	@Column(name="valeur_exemplaire")
+	@JsonView(Views.ViewBase.class)
 	private Integer valeurExemplaire;
 	
 	@ManyToOne
+	@JsonView(Views.ViewCarte.class)
 	private Carte carte;
 	
 
