@@ -44,7 +44,7 @@ public class Exemplaire {
 	private Integer valeurExemplaire;
 	
 	@ManyToOne
-	@JsonView(Views.ViewsExemplaireWithCarte.class)
+	@JsonView(Views.ViewExemplaireWithCarte.class)
 	private Carte carte;
 	
 

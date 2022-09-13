@@ -24,7 +24,10 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import cardxMania.exception.ExemplaireException;
 import cardxMania.model.Achat;
+import cardxMania.model.Carte;
+import cardxMania.model.Etat;
 import cardxMania.model.Exemplaire;
+import cardxMania.model.User;
 import cardxMania.model.Views;
 import cardxMania.service.ExemplaireService;
 
@@ -59,7 +62,7 @@ public class ExemplaireRestController {
 	@ResponseStatus(code = HttpStatus.CREATED)
 	@PostMapping("")
 	@JsonView(Views.ViewExemplaire.class)
-	public Exemplaire create(@RequestBody  @Valid Exemplaire exemplaire, BindingResult result) {
+	public Exemplaire create(@RequestBody Exemplaire exemplaire, BindingResult result) {
 		if(result.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "L'exempalire n'a pu être créée.");
 		}
@@ -86,5 +89,46 @@ public class ExemplaireRestController {
 		exemplaireService.deleteById(id);
 	}
 	
+	@GetMapping("/carte")
+	@JsonView(Views.ViewExemplaire.class)
+	public List<Exemplaire> getByCarte(@PathVariable Carte carte) {
+		List <Exemplaire> carteExemplaire = exemplaireService.getByCarte(carte);
+		
+		return carteExemplaire;
+	
+	}
 
+	@GetMapping("/vendeur")
+	@JsonView(Views.ViewExemplaire.class)
+	public List<Exemplaire> getByVendeur(@PathVariable User vendeur) {
+		List<Exemplaire> vendeurExemplaire = exemplaireService.getByVendeur(vendeur);
+		
+		return vendeurExemplaire;
+	
+	}
+	
+	@GetMapping("/etat")
+	@JsonView(Views.ViewExemplaire.class)
+	public List<Exemplaire> getByEtat(@PathVariable Etat etat) {
+		List<Exemplaire> etatExemplaire = exemplaireService.getByEtat(etat);
+		
+		return etatExemplaire;
+		
+	}
+	
+	@GetMapping("/valeur-exempplaire")
+	@JsonView(Views.ViewExemplaire.class)
+	public List<Exemplaire> getByValeurExemplaire(@PathVariable Integer valeurExemplaire) {
+		List<Exemplaire> valExemplaire = exemplaireService.getByValeurExemplaire(valeurExemplaire);
+		return valExemplaire;
+	
+	}
+	
+	@GetMapping("/en-vente")
+	@JsonView(Views.ViewExemplaire.class)
+	public List<Exemplaire> getByEnVente(@PathVariable boolean enVente) {
+		List<Exemplaire> enVenteExemplaire = exemplaireService.getByEnVente(enVente);
+
+		return enVenteExemplaire;
+	}
 }
