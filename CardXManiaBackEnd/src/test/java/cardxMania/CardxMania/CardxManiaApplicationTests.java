@@ -60,7 +60,7 @@ class CardxManiaApplicationTests {
 		carteService.create(new Carte(10,"Magic", "Je suis la première carte test Magic.", Serie.Magic));
 		carteService.create(new Carte(20,"Panini", "Je suis la première carte test Panini.", Serie.Panini));
 		carteService.create(new Carte(50,"Pokemon", "Je suis la première carte test Pokemon.", Serie.Pokemon));
-		carteService.create(new Carte(5,"yugi-oh", "Je suis la première carte test Yugioh.", Serie.Yugioh));
+		carteService.create(new Carte(5,"yugi-oh", "Je suis la première carte test Yugioh.", Serie.Yu_Gi_Oh));
 	}
 	
 
