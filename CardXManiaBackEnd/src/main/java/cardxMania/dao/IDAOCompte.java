@@ -22,8 +22,8 @@ public interface IDAOCompte extends JpaRepository<Compte,Integer> {
 	@Query("delete from Compte c where c.pseudo=:pseudo")
 	public void deleteByCompte(@Param("pseudo") String pseudo);
 
-	@Modifying
-	@Transactional
-	@Query ("SELECT c from Compte c where c.pseudo=:pseudo and c.password=:password")
-	public void seConnecter(@Param("pseudo")String pseudo, @Param("password")String password);
+//	@Modifying
+//	@Transactional
+//	@Query ("SELECT c from Compte c where c.pseudo=:pseudo and c.password=:password")
+//	public void seConnecter(@Param("pseudo")String pseudo, @Param("password")String password);
 }

@@ -39,9 +39,9 @@ public class CompteService {
 		compteRepo.deleteById(id);
 	}
 	
-	public void seConnecter(String pseudo,String password) {
-		compteRepo.seConnecter(pseudo, password);
-	}
+//	public void seConnecter(String pseudo,String password) {
+//		compteRepo.seConnecter(pseudo, password);
+//	}
 	
 	
 }
