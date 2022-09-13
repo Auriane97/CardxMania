@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 
 @Entity
+@JsonView(Views.ViewAchat.class)
 public class Achat {
 	
 	@Id

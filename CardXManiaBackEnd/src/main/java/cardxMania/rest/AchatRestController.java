@@ -35,13 +35,13 @@ public class AchatRestController {
 	@Autowired
 	private AchatService achatService;
 
-	@JsonView(Views.ViewBase.class)
+	@JsonView(Views.ViewAchat.class)
 	@GetMapping("")
 	public List<Achat> getAll() {
 		return achatService.getAll();
 	}
 
-	@JsonView(Views.ViewBase.class)
+	@JsonView(Views.ViewAchat.class)
 	@GetMapping("/{id}")
 	public Achat getById(@PathVariable Integer id) {
 		Optional<Achat> optAchat = achatService.getById(id);
@@ -56,7 +56,7 @@ public class AchatRestController {
 
 	@ResponseStatus(code = HttpStatus.CREATED)
 	@PostMapping("")
-	@JsonView(Views.ViewBase.class)
+	@JsonView(Views.ViewAchat.class)
 	public Achat create(@RequestBody  @Valid Achat achat, BindingResult result) {
 		if(result.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "L'achat n'a pu être créée.");
@@ -67,7 +67,7 @@ public class AchatRestController {
 	}
 
 	@PutMapping("/{id}")
-	@JsonView(Views.ViewBase.class)
+	@JsonView(Views.ViewAchat.class)
 	public Achat update(@PathVariable Integer id, @RequestBody Achat achat) {
 		try {
 			achatService.getById(id);
