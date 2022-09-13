@@ -49,7 +49,6 @@ public class Lot {
 
 	
 	public Lot(User acheteur, User vendeur, LocalDate dateAchat) {
-		super();
 		this.acheteur = acheteur;
 		this.vendeur = vendeur;
 		this.dateAchat = dateAchat;

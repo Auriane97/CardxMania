@@ -27,7 +27,7 @@ public class Exemplaire {
 	private Integer id;
 	
 	@OneToMany(mappedBy="exemplaire")
-	@JsonView(Views.ViewExemplaireWithAchat.class)
+	@JsonView(Views.ViewExemplaire.class)
 	private List<Achat> achats;
 	
 	@ManyToOne
@@ -44,7 +44,7 @@ public class Exemplaire {
 	private Integer valeurExemplaire;
 	
 	@ManyToOne
-	@JsonView(Views.ViewExemplaireWithCarte.class)
+	@JsonView(Views.ViewExemplaire.class)
 	private Carte carte;
 	
 

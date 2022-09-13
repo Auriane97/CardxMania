@@ -68,14 +68,15 @@ public class AchatRestController {
 
 	@PutMapping("/{id}")
 	@JsonView(Views.ViewAchat.class)
-	public Achat update(@PathVariable Integer id, @RequestBody Achat achat) {
+	public Achat update(@RequestBody Achat achat, @PathVariable Integer id) {
 		try {
 			achatService.getById(id);
 		} catch (AchatException ex) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
-		return achatService.update(achat);
-	}
+		achat = achatService.update(achat);
+
+		return achat;	}
 
 	
 	@DeleteMapping("/{id}")
