@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 
 @Entity
-@JsonView(Views.ViewAchat.class)
+
 public class Achat {
 	
 	@Id
@@ -20,12 +20,12 @@ public class Achat {
 	private Integer id;
 	
 	@ManyToOne
-	@JsonView(Views.ViewAchatWithExemplaire.class)
+	@JsonView(Views.ViewAchat.class)
 	private Exemplaire exemplaire;
 	
 
 	@ManyToOne
-	@JsonView(Views.ViewAchatWithLot.class)
+	@JsonView(Views.ViewAchat.class)
 	private Lot lot;
 	
 

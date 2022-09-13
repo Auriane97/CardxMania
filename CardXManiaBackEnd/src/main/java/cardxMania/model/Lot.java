@@ -30,11 +30,11 @@ public class Lot {
 	private int note;
 
 	@ManyToOne
-	@JsonView(Views.ViewUser.class)
+	@JsonView(Views.ViewLot.class)
 	private User acheteur;
 	
 	@ManyToOne
-	@JsonView(Views.ViewUser.class)
+	@JsonView(Views.ViewLot.class)
 	private User vendeur;
 	
 	
