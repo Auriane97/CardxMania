@@ -73,7 +73,7 @@ class CardxManiaApplicationTests {
 //	@Test
 //	public void exemplaireCreation() {
 //
-//		exemplaireService.create(new Exemplaire(true,carteService.getById(3),Etat.Abimee,compteService.getById(3)));
+//		exemplaireService.create(new Exemplaire(true,carteService.getById(3).get(),Etat.Abimee,compteService.getById(3).get()));
 //		exemplaireService.create(new Exemplaire(true,carteService.getById(2),Etat.BonEtat,compteService.getById(4)));
 //		exemplaireService.create(new Exemplaire(false,carteService.getById(1),Etat.Abimee,compteService.getById(1)));
 //		exemplaireService.create(new Exemplaire(true,carteService.getById(4),Etat.BonEtat,compteService.getById(4)));

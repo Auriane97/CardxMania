@@ -44,7 +44,7 @@ public class Views {
 	public class ViewExemplaireWithAchat extends ViewExemplaire {	
 	}
 	
-	public class ViewsExemplaireWithCarte extends ViewExemplaire {	
+	public class ViewExemplaireWithCarte extends ViewExemplaire {	
 	}
 	
 	
