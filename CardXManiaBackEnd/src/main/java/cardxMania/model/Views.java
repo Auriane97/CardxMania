@@ -50,10 +50,18 @@ public class Views {
 	}
 	
 	
+	public class ViewExemplaireWithUser extends ViewExemplaire {	
+	}
+	
 	public static class ViewLot extends ViewBase {
 	}
 	
 	public static class ViewLotWithAchat extends ViewLot {
+		
+	}
+	
+	public static class ViewLotWithUser extends ViewLot {
+		
 	}
 	
 	public static class ViewUser extends ViewBase {

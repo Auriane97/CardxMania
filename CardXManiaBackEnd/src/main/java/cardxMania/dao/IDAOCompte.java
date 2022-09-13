@@ -16,11 +16,11 @@ public interface IDAOCompte extends JpaRepository<Compte,Integer> {
 
 	public Optional<Compte> findByPseudo (String pseudo);
 
-
-	@Modifying
-	@Transactional
-	@Query("delete from Compte c where c.pseudo=:pseudo")
-	public void deleteByCompte(@Param("pseudo") String pseudo);
+//
+//	@Modifying
+//	@Transactional
+//	@Query("delete from Compte c where c.pseudo=:pseudo")
+//	public void deleteByCompte(@Param("pseudo") String pseudo);
 
 //	@Modifying
 //	@Transactional

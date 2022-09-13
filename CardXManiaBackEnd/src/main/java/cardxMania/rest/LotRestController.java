@@ -88,14 +88,14 @@ public class LotRestController {
 	}
 
 	
-	@JsonView(Views.ViewLotWithAcheteur.class)
+	@JsonView(Views.ViewLotWithUser.class)
 	@GetMapping("/lot_acheteur")
 	public List<Lot> getByAcheteurWithAchat(@PathVariable User acheteur ){
 			
 		return lotService.findByAcheteurWithAchat(acheteur);
 	}
 	
-	@JsonView(Views.ViewLotWithVendeur.class)
+	@JsonView(Views.ViewLotWithUser.class)
 	@GetMapping("/vendeur")
 	public List<Lot> getByVendeurWithAchat(@PathVariable User vendeur ){
 			

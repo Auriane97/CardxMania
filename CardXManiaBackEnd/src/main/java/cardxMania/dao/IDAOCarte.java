@@ -15,8 +15,8 @@ import cardxMania.model.Serie;
 
 public interface IDAOCarte extends JpaRepository<Carte,Integer>{
 	
-	@Query("select c from Carte c where c.serie=:c.serie")
-	public Optional <Carte> findByCarteWithSerie(Serie serie);
+	@Query("select c from Carte c where c.serie = :serie")
+	public Optional <Carte> findByCarteWithSerie(@Param("serie") Serie serie);
 	
 	@RestResource(path = "/by-libelle-containing")
 	public List<Carte> findByLibelleContaining(String lib);

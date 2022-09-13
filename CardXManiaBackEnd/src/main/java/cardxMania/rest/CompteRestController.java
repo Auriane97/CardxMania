@@ -90,9 +90,9 @@ public class CompteRestController {
 		compteService.deleteById(id);
 	}
 	
-	@DeleteMapping("/{id}")
-	public void deleteByCompte(@PathVariable String pseudo) {
-		compteRepo.deleteByCompte(pseudo);
-	}
+//	@DeleteMapping("/{id}")
+//	public void deleteByCompte(@PathVariable String pseudo) {
+//		compteRepo.deleteByCompte(pseudo);
+//	}
 
 }

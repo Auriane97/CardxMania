@@ -90,7 +90,7 @@ public class ExemplaireRestController {
 	}
 	
 	@GetMapping("/carte")
-	@JsonView(Views.ViewExemplaire.class)
+	@JsonView(Views.ViewExemplaireWithCarte.class)
 	public List<Exemplaire> getByCarte(@PathVariable Carte carte) {
 		List <Exemplaire> carteExemplaire = exemplaireService.getByCarte(carte);
 		
@@ -99,7 +99,7 @@ public class ExemplaireRestController {
 	}
 
 	@GetMapping("/vendeur")
-	@JsonView(Views.ViewExemplaire.class)
+	@JsonView(Views.ViewExemplaireWithUser.class)
 	public List<Exemplaire> getByVendeur(@PathVariable User vendeur) {
 		List<Exemplaire> vendeurExemplaire = exemplaireService.getByVendeur(vendeur);
 		

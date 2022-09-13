@@ -11,10 +11,10 @@ import cardxMania.model.User;
 
 public interface IDAOLot extends JpaRepository<Lot,Integer>{
 
-	@Query("select l from Lot l left join fetch l.achat where l.acheteur=:acheteur")
+	@Query("select distinct l from Lot l left join fetch l.achats where l.acheteur=:acheteur")
 	public List<Lot> findByAcheteurWithAchat(@Param("acheteur") User acheteur );
 	
-	@Query("select l from Lot l left join fetch l.achat where l.vendeur=:vendeur")
+	@Query("select distinct l from Lot l left join fetch l.achats where l.vendeur=:vendeur")
 	public List<Lot> findByVendeurWithAchat(@Param("vendeur") User vendeur );
 	
 	
