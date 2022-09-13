@@ -3,9 +3,12 @@ package cardxMania.model;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 
 @Entity
 @DiscriminatorValue("User")
+@JsonView(Views.ViewUser.class)
 public class User extends Compte {
 
 	public User() {

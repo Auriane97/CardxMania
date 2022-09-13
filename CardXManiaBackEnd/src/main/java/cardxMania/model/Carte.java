@@ -20,18 +20,19 @@ public class Carte {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@JsonView(Views.ViewCarte.class)
+	@JsonView(Views.ViewBase.class)
 	protected Integer id;
 	
-	@JsonView(Views.ViewCarte.class)
+	@JsonView(Views.ViewBase.class)
 	protected int cote;
-	@JsonView(Views.ViewCarte.class)
+	
+	@JsonView(Views.ViewBase.class)
 	protected String libelle;
 	
 	@Lob
 	private transient byte[] photo;
 	
-	@JsonView(Views.ViewCarte.class)
+	@JsonView(Views.ViewBase.class)
 	private String description;
 	
 	@OneToMany(mappedBy="carte")
@@ -39,7 +40,7 @@ public class Carte {
 	private List<Exemplaire> exemplaires;
 	
 	@Enumerated(EnumType.STRING)
-	@JsonView(Views.ViewCarte.class)
+	@JsonView(Views.ViewBase.class)
 	private Serie serie;
 	
 	
