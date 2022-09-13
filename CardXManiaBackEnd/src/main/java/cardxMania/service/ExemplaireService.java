@@ -29,8 +29,8 @@ import cardxMania.model.User;
 		}
 		
 		
-		public List<Exemplaire> getByCarte(Carte carte) {
-			return exemplaireRepo.findByCarte(carte);
+		public List<Exemplaire> getByCarte(Integer id) {
+			return exemplaireRepo.findWithCarteById(id);
 		}
 		
 			

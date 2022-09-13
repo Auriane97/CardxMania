@@ -11,11 +11,13 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="type_compte", columnDefinition = "ENUM('Admin','User')")
+@JsonTypeInfo(use = JsonTypeInfo.Id.CLASS)
 public abstract class Compte {
 	
 	@Id

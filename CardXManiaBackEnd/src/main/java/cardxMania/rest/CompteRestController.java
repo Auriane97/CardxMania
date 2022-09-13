@@ -37,9 +37,7 @@ public class CompteRestController {
 	
 	@Autowired
 	private CompteService compteService;
-	
-	@Autowired
-	private IDAOCompte compteRepo;
+
 
 	@JsonView(Views.ViewCompte.class)
 	@GetMapping("")

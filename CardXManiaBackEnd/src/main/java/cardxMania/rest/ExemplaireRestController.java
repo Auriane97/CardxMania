@@ -29,6 +29,7 @@ import cardxMania.model.Etat;
 import cardxMania.model.Exemplaire;
 import cardxMania.model.User;
 import cardxMania.model.Views;
+import cardxMania.service.CarteService;
 import cardxMania.service.ExemplaireService;
 
 
@@ -39,10 +40,11 @@ public class ExemplaireRestController {
 	
 	@Autowired
 	private ExemplaireService exemplaireService;
+	private CarteService carteService;
 
 	@JsonView(Views.ViewExemplaire.class)
 	@GetMapping("")
-	public List<Exemplaire> getAll() {
+	public 
 		return exemplaireService.getAll();
 	}
 
@@ -89,13 +91,17 @@ public class ExemplaireRestController {
 		exemplaireService.deleteById(id);
 	}
 	
-	@GetMapping("/carte")
-	@JsonView(Views.ViewExemplaireWithCarte.class)
-	public List<Exemplaire> getByCarte(@PathVariable Carte carte) {
-		List <Exemplaire> carteExemplaire = exemplaireService.getByCarte(carte);
+	// Trouver les exemplaires d'une carte
+	@GetMapping("/carte/{id}")
+	@JsonView(Views.ViewExemplaire.class)
+	public List<Exemplaire> getByCarte(@PathVariable Integer id, @RequestBody Carte carte) {
+
+		if(carteService.getById(id) == exemplaireService.getByCarte(id)) {
 		
+			List <Exemplaire> carteExemplaire = exemplaireService.getByCarte(carte);
+		}
+			
 		return carteExemplaire;
-	
 	}
 
 	@GetMapping("/vendeur")
@@ -116,7 +122,7 @@ public class ExemplaireRestController {
 		
 	}
 	
-	@GetMapping("/valeur-exempplaire")
+	@GetMapping("/valeur-exemplaire")
 	@JsonView(Views.ViewExemplaire.class)
 	public List<Exemplaire> getByValeurExemplaire(@PathVariable Integer valeurExemplaire) {
 		List<Exemplaire> valExemplaire = exemplaireService.getByValeurExemplaire(valeurExemplaire);
