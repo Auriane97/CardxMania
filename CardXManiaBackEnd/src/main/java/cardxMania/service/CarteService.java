@@ -1,6 +1,7 @@
 package cardxMania.service;
 
 import java.util.List;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,13 +12,14 @@ import cardxMania.exception.CarteException;
 import cardxMania.model.Carte;
 import cardxMania.model.Serie;
 
+
 @Service
 public class CarteService {
 	
 	@Autowired
 	private IDAOCarte carteRepo;
 	
-	public List<Carte> getAll() {
+	public List<Carte> findAll() {
 		return carteRepo.findAll();
 	}
 	
@@ -37,10 +39,10 @@ public class CarteService {
 		carteRepo.deleteById(id);
 	}
 
-	public List<Carte> getBySerie(Serie serie) {
-		return carteRepo.findBySerie(serie);
+	public Optional<Carte> getByCarteWithSerie(Serie serie) {
+		return carteRepo.findByCarteWithSerie(serie);
 		
 	}
 	
-	
+
 }

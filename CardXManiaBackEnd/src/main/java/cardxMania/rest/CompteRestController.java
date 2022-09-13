@@ -22,6 +22,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import cardxMania.dao.IDAOCompte;
 import cardxMania.exception.CompteException;
 import cardxMania.model.Achat;
 import cardxMania.model.Compte;
@@ -36,6 +37,9 @@ public class CompteRestController {
 	
 	@Autowired
 	private CompteService compteService;
+	
+	@Autowired
+	private IDAOCompte compteRepo;
 
 	@JsonView(Views.ViewCompte.class)
 	@GetMapping("")
@@ -86,6 +90,9 @@ public class CompteRestController {
 		compteService.deleteById(id);
 	}
 	
-
+	@DeleteMapping("/{id}")
+	public void deleteByCompte(@PathVariable String pseudo) {
+		compteRepo.deleteByCompte(pseudo);
+	}
 
 }

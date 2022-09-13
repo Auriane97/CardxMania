@@ -24,6 +24,8 @@ public class Views {
 	
 	public static class ViewCarteWithCompte extends ViewCarte {	
 	}
+	public static class ViewCarteWithSerie extends ViewCarte {	
+	}
 	
 	public static class ViewCartewithExemplaire extends ViewCarte {	
 	}
