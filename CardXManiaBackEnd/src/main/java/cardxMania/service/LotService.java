@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import cardxMania.dao.IDAOLot;
 import cardxMania.exception.LotException;
 import cardxMania.model.Lot;
+import cardxMania.model.User;
 
 
 	@Service
@@ -38,6 +39,14 @@ import cardxMania.model.Lot;
 
 		public void deleteById(Integer id) {
 			lotRepo.deleteById(id);
+		}
+		
+		public List<Lot> findByAcheteurWithAchat(User acheteur) {
+			return lotRepo.findByAcheteurWithAchat(acheteur);
+		}
+		
+		public List<Lot> findByVendeurWithAchat(User vendeur) {
+			return lotRepo.findByVendeurWithAchat(vendeur);
 		}
 
 		

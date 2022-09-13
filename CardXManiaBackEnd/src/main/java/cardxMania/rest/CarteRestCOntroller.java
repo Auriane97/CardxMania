@@ -1,6 +1,8 @@
 package cardxMania.rest;
 
 import java.util.List;
+
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,11 +21,16 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import cardxMania.dao.IDAOCarte;
 import cardxMania.exception.CarteException;
 import cardxMania.model.Achat;
 import cardxMania.model.Carte;
+import cardxMania.model.Serie;
 import cardxMania.model.Views;
+import cardxMania.model.Views.ViewCarteWithSerie;
 import cardxMania.service.CarteService;
+
+
 
 
 
@@ -34,11 +41,13 @@ public class CarteRestCOntroller {
 	
 	@Autowired
 	private CarteService carteService;
+	@Autowired
+	private IDAOCarte carteRepo;
 
 	@JsonView(Views.ViewCarte.class)
 	@GetMapping("")
 	public List<Carte> getAll() {
-		return carteService.getAll();
+		return carteService.findAll();
 	}
 
 	@JsonView(Views.ViewCarte.class)
@@ -77,6 +86,19 @@ public class CarteRestCOntroller {
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Integer id) {
 		carteService.deleteById(id);
+	}
+	
+	@JsonView(Views.ViewCarteWithSerie.class)
+	@GetMapping("/serie")
+	public Optional<Carte> getByCarteWithSerie(@PathVariable Serie serie){
+			
+		return carteService.getByCarteWithSerie(serie);
+	}
+	
+	@GetMapping("/by-libelle/{libelle}")
+	@JsonView(Views.ViewCarte.class)
+	public List<Carte> findAllByLibelle(@PathVariable String lib) {
+		return carteRepo.findByLibelleContaining(lib);
 	}
 	
 

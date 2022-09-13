@@ -1,6 +1,7 @@
 package cardxMania.rest;
 
 import java.util.List;
+
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -23,9 +24,12 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import cardxMania.exception.LotException;
 import cardxMania.model.Achat;
+import cardxMania.model.Carte;
 import cardxMania.model.Lot;
+import cardxMania.model.User;
 import cardxMania.model.Views;
 import cardxMania.service.LotService;
+
 
 @RestController
 @RequestMapping("api/lot")
@@ -82,7 +86,22 @@ public class LotRestController {
 	public void delete(@PathVariable Integer id) {
 		lotService.deleteById(id);
 	}
+
 	
-
-
+	@JsonView(Views.ViewLotWithAcheteur.class)
+	@GetMapping("/lot_acheteur")
+	public List<Lot> getByAcheteurWithAchat(@PathVariable User acheteur ){
+			
+		return lotService.findByAcheteurWithAchat(acheteur);
+	}
+	
+	@JsonView(Views.ViewLotWithVendeur.class)
+	@GetMapping("/vendeur")
+	public List<Lot> getByVendeurWithAchat(@PathVariable User vendeur ){
+			
+		return lotService.findByVendeurWithAchat(vendeur);
+	}
 }
+
+
+
