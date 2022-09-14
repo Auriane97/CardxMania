@@ -129,7 +129,7 @@ public class ExemplaireRestController {
 	
 	}
 	
-	@GetMapping("/en-vente")
+	@GetMapping("/en-vente/{enVente}")
 	@JsonView(Views.ViewExemplaire.class)
 	public List<Exemplaire> getByEnVente(@PathVariable boolean enVente) {
 		List<Exemplaire> enVenteExemplaire = exemplaireService.getByEnVente(enVente);
