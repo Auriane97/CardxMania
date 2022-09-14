@@ -10,7 +10,7 @@ public interface IDAOCompte extends JpaRepository<Compte,Integer> {
 
 
 	public Optional<Compte> findByPseudo (String pseudo);
-	public Optional<Compte> findByIdentifiantAndMotDePasse(String pseudo, String password);
+	public Optional<Compte> findByPseudoAndPassword(String pseudo, String password);
 //
 //	@Modifying
 //	@Transactional

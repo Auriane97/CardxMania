@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cardxMania.dao.IDAOCompte;
-import cardxMania.exception.CompteException;
 import cardxMania.model.Compte;
 
 @Service
@@ -44,7 +43,7 @@ public class CompteService {
 	}
 	
 	public  Optional<Compte> seConnecter(String pseudo,String password) {
-		return compteRepo.findByIdentifiantAndMotDePasse(pseudo, password);
+		return compteRepo.findByPseudoAndPassword(pseudo, password);
 	}
 	
 	
