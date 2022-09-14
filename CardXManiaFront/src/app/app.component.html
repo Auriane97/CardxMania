@@ -1,0 +1,246 @@
+
+<img src="../assets/img/logo.png" />
+        
+<!DOCTYPE html>
+<Style>
+/* 
+modif pour la banniere avec les liens */
+
+        nav a {
+        color: #0976f3;
+        padding: 0px 16px;
+        border-radius: 3px;
+        width: 100%;
+        font-weight: 600;
+        font-size: 16px;
+        display: block;
+        padding: 8px;
+        text-align: center;
+        
+        } 
+        nav form {
+        color: #0976f3;
+        padding: 0px 16px;
+        border-radius: 3px;
+        width: 100%;
+        font-weight: 600;
+        font-size: 16px;
+        display: block;
+        padding: 8px;
+        text-align: center;
+        
+        } 
+
+        nav h1 {
+        color: #0976f3;
+        padding: 0px 16px;
+        border-radius: 3px;
+        width: 100%;
+        font-weight: 600;
+        font-size: 16px;
+        display: block;
+        padding: 8px;
+        float: left;
+        
+        } 
+
+        nav a:hover {
+        background-color: rgb(220, 253, 255);
+        color: black;
+        }
+
+        ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        
+        }
+
+        li {
+        float: right;
+        }
+
+       input[type=text] {
+        transition: width 0.4s ease-in-out;
+        }
+
+        input[type=text]:focus {
+        width: 60%;
+        }
+
+/* 
+fin modif pour la banniere avec les liens */
+
+/* Carousel */
+        .slider-container img {
+            max-width: 50%;
+        }
+
+        .carousel h1 {
+            text-align: center;
+        }
+
+        .slider-container {
+            max-width: 500px;
+            position: relative;
+            margin: auto;
+            height: 350px;
+            overflow: hidden;
+        }
+        .menu {
+            position: absolute;
+            left: 0;
+            z-index: 11;
+            width: 100%;
+            bottom: 0;
+            text-align: center;
+        }
+        .menu label {
+            cursor: pointer;
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #ccc;
+            border-radius: 50px;
+            margin: 0 0.2em 1em;
+        }
+        .menu label:hover,.menu label:focus {
+            background: #1c87c9;
+        }
+        .slide-input{
+            opacity: 0;
+        }
+        .slide-img {
+            width: 50%;
+            height: 300px;
+            position: absolute;
+            top: 0%;
+            left: 100%;
+
+            z-index: 10;
+            transition: left 0s 0.75s;
+        }
+        [id^="slide"]:checked + .slide-img {
+            left: 25%;
+            z-index: 100;
+            transition: left 0.65s ease-out;
+        }
+
+/* fin carousel */
+
+
+</Style>
+
+<html>
+
+<body>
+<!-- banniere -->
+    <nav>
+        <ul>
+        <li style="float:left"><a href="#">Accueil</a></li>
+        <li> <a href="#">L'équipe</a></li>
+        <li> <a href="#">Projets</a></li>
+        <li>  <a href="#">Contact</a></li>
+        <form>
+            <input id="searchbar" type="text" name="q" placeholder="Exemplaire, Carte">
+            <button class="button" style="vertical-align:middle"><span>Go </span></button>
+        </form>
+        </ul>
+    </nav>
+<!-- banniere -->
+
+
+    <!-- Ici nous mettons le contenu de la page -->
+    <main>
+
+        <!-- Il contient un article -->
+        <article>
+            <h2>En-tête d'article</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Donec a diam lectus. Set sit amet ipsum mauris.
+                Maecenas congue ligula as quam viverra nec consectetur ant hendrerit. Donec et mollis dolor. Praesent et
+                diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia
+                consectetur.</p>
+
+            <h3>Sous‑section</h3>
+            <p>Donec ut librero sed accu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur
+                adipisicing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor.
+            </p>
+            <p>Pelientesque auctor nisi id magna consequat sagittis. Curabitur dapibus, enim sit amet elit pharetra
+                tincidunt feugiat nist imperdiet. Ut convallis libero in urna ultrices accumsan. Donec sed odio eros.
+            </p>
+
+            <h3>Autre sous‑section</h3>
+            <p>Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum soclis natoque penatibus et manis dis
+                parturient montes, nascetur ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem
+                facilisis semper ac in est.</p>
+            <p>Vivamus fermentum semper porta. Nunc diam velit, adipscing ut tristique vitae sagittis vel odio. Maecenas
+                convallis ullamcorper ultricied. Curabitur ornare, ligula semper consectetur sagittis, nisi diam iaculis
+                velit, is fringille sem nunc vet mi.</p>
+        </article>
+
+<!-- carousel -->
+<div class="carousel">
+<h1>Carte ajoutées recemmetn</h1>
+<div class="slider-container">
+    <div class="menu">
+        <label for="slide-dot-1"></label>
+        <label for="slide-dot-2"></label>
+        <label for="slide-dot-3"></label>
+        <label for="slide-dot-4"></label>
+        <label for="slide-dot-5"></label>
+        <label for="slide-dot-6"></label>
+
+    </div>
+
+    <input class="slide-input" id="slide-dot-1" type="radio" name="slides" checked>
+    <img class="slide-img" src="../assets/img/alakazam.png">
+
+    <input class="slide-input" id="slide-dot-2" type="radio" name="slides">
+    <img class="slide-img" src="../assets/img/Verdict de Tuquerelle.jpg">
+
+    <input class="slide-input" id="slide-dot-3" type="radio" name="slides">
+    <img class="slide-img" src="../assets/img/Tortank.png">
+
+    <input class="slide-input" id="slide-dot-4" type="radio" name="slides">
+    <img class="slide-img" src="../assets/img/Tariel, héliaste d'âmes.jpg">
+
+    <input class="slide-input" id="slide-dot-5" type="radio" name="slides">
+    <img class="slide-img" src="../assets/img/melofée.png">
+
+    <input class="slide-input" id="slide-dot-6" type="radio" name="slides">
+    <img class="slide-img" src="../assets/img/Singularité explosive.jpg">
+
+</div>
+<!-- carousel -->
+
+</div>
+
+
+        <!-- Le contenu « à côté » peut aussi être intégré dans le contenu
+            principal -->
+        <aside>
+            <h2>En relation</h2>
+            <ul>
+                <li><a href="#">Combien j'aime être près des rivages</a></li>
+                <li><a href="#">Combien j'aime être près de la mer</a></li>
+                <li><a href="#">Bien que dans le nord de l'Angleterre</a></li>
+                <li><a href="#">Il n'arrête jamais de pleuvoir</a></li>
+                <li><a href="#">Eh bien…</a></li>
+            </ul>
+        </aside>
+
+    </main>
+
+    <!-- Et voici notre pied de page utilisé sur toutes les pages du site -->
+    <footer>
+        <p>©Copyright 2050 par personne. Tous droits reversés.</p>
+    </footer>
+
+</body>
+
+</html>
+
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
