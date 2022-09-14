@@ -30,7 +30,7 @@ public class UserRestController {
 	@Autowired
 	private UserService userService;
 
-	@JsonView(Views.ViewLot.class)
+	@JsonView(Views.ViewUser.class)
 	@GetMapping("")
 	public List<Compte> getAll() {
 		return userService.getAll();

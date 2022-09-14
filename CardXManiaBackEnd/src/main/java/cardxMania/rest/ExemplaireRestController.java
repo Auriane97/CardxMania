@@ -103,14 +103,6 @@ public class ExemplaireRestController {
 		return carteExemplaire;
 	}
 
-	@GetMapping("/vendeur")
-	@JsonView(Views.ViewExemplaireWithUser.class)
-	public List<Exemplaire> getByVendeur(@PathVariable User vendeur) {
-		List<Exemplaire> vendeurExemplaire = exemplaireService.getByVendeur(vendeur);
-		
-		return vendeurExemplaire;
-	
-	}
 	
 	@GetMapping("/etat/{etat}")
 	@JsonView(Views.ViewExemplaire.class)
@@ -121,13 +113,13 @@ public class ExemplaireRestController {
 		
 	}
 	
-	@GetMapping("/valeur-exemplaire")
-	@JsonView(Views.ViewExemplaire.class)
-	public List<Exemplaire> getByValeurExemplaire(@PathVariable Integer valeurExemplaire) {
-		List<Exemplaire> valExemplaire = exemplaireService.getByValeurExemplaire(valeurExemplaire);
-		return valExemplaire;
-	
-	}
+//	@GetMapping("/valeur-exemplaire")
+//	@JsonView(Views.ViewExemplaire.class)
+//	public List<Exemplaire> getByValeurExemplaire(@PathVariable Integer valeurExemplaire) {
+//		List<Exemplaire> valExemplaire = exemplaireService.getByValeurExemplaire(valeurExemplaire);
+//		return valExemplaire;
+//	
+//	}
 	
 	@GetMapping("/en-vente/{enVente}")
 	@JsonView(Views.ViewExemplaire.class)
