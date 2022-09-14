@@ -15,18 +15,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import cardxMania.dao.IDAOCompte;
 import cardxMania.exception.CompteException;
-import cardxMania.model.Achat;
 import cardxMania.model.Compte;
 import cardxMania.model.Views;
+import cardxMania.rest.dto.LoginDTO;
 import cardxMania.service.CompteService;
 
 
@@ -87,6 +85,18 @@ public class CompteRestController {
 	public void delete(@PathVariable Integer id) {
 		compteService.deleteById(id);
 	}
+	
+	@PostMapping("/login")
+	public Compte login(@RequestBody LoginDTO loginDTO) {
+		Optional<Compte> optionalCompte = compteService.seConnecter(loginDTO.getPseudo(), loginDTO.getPassword());
+		
+		if(!optionalCompte.isPresent()) {
+			throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Utilisateur inconnu");
+		}
+		
+		return optionalCompte.get();
+	}
+	
 	
 //	@DeleteMapping("/{id}")
 //	public void deleteByCompte(@PathVariable String pseudo) {
