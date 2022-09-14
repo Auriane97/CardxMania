@@ -26,8 +26,10 @@ import cardxMania.dao.IDAOCarte;
 import cardxMania.exception.CarteException;
 import cardxMania.model.Achat;
 import cardxMania.model.Carte;
+import cardxMania.model.Exemplaire;
 import cardxMania.model.Serie;
 import cardxMania.model.Views;
+import cardxMania.model.Views.ViewCarte;
 import cardxMania.model.Views.ViewCarteWithSerie;
 import cardxMania.service.CarteService;
 
@@ -82,18 +84,19 @@ public class CarteRestController {
 		carteService.deleteById(id);
 	}
 	
-	@JsonView(Views.ViewCarteWithSerie.class)
-	@GetMapping("/serie")
-	public Optional<Carte> getByCarteWithSerie (@RequestParam(value="name") String name, Serie serie ) 
+	@JsonView(Views.ViewCarte.class)
+	@GetMapping("/serie/{libelle}")
+	public List <Carte> getByCarteWithSerie (@PathVariable Serie libelle) 
 			 {
-		return carteService.getByCarteWithSerie(serie);
+		List <Carte> serieDeCarte = carteService.getByCarteWithSerie(libelle);
+		return serieDeCarte;
 	}
 	
-	@GetMapping("/{libelle}")
-	@JsonView(Views.ViewCarte.class)
-	public List<Carte> findAllByLibelle(@PathVariable String lib) {
-		return carteRepo.findByLibelleContaining(lib);
-	}
+//	@GetMapping("/{libelle}")
+//	@JsonView(Views.ViewCarte.class)
+//	public List<Carte> findAllByLibelle(@PathVariable String lib) {
+//		return carteRepo.findByLibelleContaining(lib);
+//	}
 	
 
 }

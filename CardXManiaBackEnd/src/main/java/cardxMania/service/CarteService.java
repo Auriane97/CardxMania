@@ -40,10 +40,9 @@ public class CarteService {
 		carteRepo.deleteById(id);
 	}
 
-	public Optional<Carte> getByCarteWithSerie(Serie serie) {
-		return carteRepo.findByCarteWithSerie(serie);
+	public List <Carte> getByCarteWithSerie(Serie libelle) {
+		return carteRepo.findByCarteWithSerie(libelle);
 		
 	}
+	}
 	
-
-}

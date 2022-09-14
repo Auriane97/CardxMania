@@ -30,7 +30,7 @@ import cardxMania.model.User;
 		
 		
 		public List<Exemplaire> getByCarte(Integer id) {
-			return exemplaireRepo.findWithCarteById(id);
+			return exemplaireRepo.findByExemplaireWithCarte(id);
 		}
 		
 			

@@ -16,11 +16,12 @@ import cardxMania.model.Serie;
 public interface IDAOCarte extends JpaRepository<Carte,Integer>{
 	
 	@Query("select c from Carte c where c.serie = :serie")
-	public Optional <Carte> findByCarteWithSerie(@Param("serie") Serie serie);
+	public List<Carte> findByCarteWithSerie(@Param("serie") Serie libelle);
 	
-	@RestResource(path = "/by-libelle-containing")
-	public List<Carte> findByLibelleContaining(String lib);
+//	@RestResource(path = "/by-libelle-containing")
+//	public List<Carte> findByLibelleContaining(String lib);
 
+	
 	
 
 //	@Query("select c from Carte c left join fetch c.compte where c.id=:id")
