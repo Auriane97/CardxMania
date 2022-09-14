@@ -112,7 +112,7 @@ public class ExemplaireRestController {
 	
 	}
 	
-	@GetMapping("/etat")
+	@GetMapping("/etat/{etat}")
 	@JsonView(Views.ViewExemplaire.class)
 	public List<Exemplaire> getByEtat(@PathVariable Etat etat) {
 		List<Exemplaire> etatExemplaire = exemplaireService.getByEtat(etat);
