@@ -95,12 +95,10 @@ public class ExemplaireRestController {
 	// Trouver les exemplaires d'une carte
 	@GetMapping("/carte/{id}")
 	@JsonView(Views.ViewExemplaire.class)
-	public List<Exemplaire> getByCarte(@PathVariable Integer id, @RequestBody Carte carte) {
+	public List<Exemplaire> getByCarte(@PathVariable Integer id, @RequestBody Exemplaire exemplaire) {
 
-		if(carteService.getById(id) == exemplaireService.getByCarte(id)) {
+			List <Exemplaire> carteExemplaire = exemplaireService.getByCarte(id);
 		
-			List <Exemplaire> carteExemplaire = exemplaireService.getByCarte(carte);
-		}
 			
 		return carteExemplaire;
 	}

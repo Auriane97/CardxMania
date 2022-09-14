@@ -33,7 +33,7 @@ import cardxMania.service.CarteService;
 
 @RestController
 @RequestMapping("/api/carte")
-public class CarteRestCOntroller {
+public class CarteRestController {
 	
 	@Autowired
 	private CarteService carteService;
