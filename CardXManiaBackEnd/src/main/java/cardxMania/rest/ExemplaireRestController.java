@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import cardxMania.exception.ExemplaireException;
 import cardxMania.model.Achat;
 import cardxMania.model.Carte;
+import cardxMania.model.Compte;
 import cardxMania.model.Etat;
 import cardxMania.model.Exemplaire;
 import cardxMania.model.User;
@@ -44,7 +45,7 @@ public class ExemplaireRestController {
 
 	@JsonView(Views.ViewExemplaire.class)
 	@GetMapping("")
-	public 
+	public List<Exemplaire> getAll() {
 		return exemplaireService.getAll();
 	}
 

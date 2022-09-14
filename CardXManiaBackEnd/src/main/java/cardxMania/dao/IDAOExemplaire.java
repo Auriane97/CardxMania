@@ -24,7 +24,8 @@ public interface IDAOExemplaire extends JpaRepository<Exemplaire,Integer> {
 //	@Query("select e from Exemplaire e where e.carte_id = :id_carte")
 //	public Optional <Exemplaire> findByExemplaireWithCarte(@Param("carte") Carte carte);
 	
-	public List<Exemplaire> findByEtat(Etat etat);
+	@Query("select e from Exemplaire e where e.etat = :etat")
+	public List<Exemplaire> findByEtat(@Param("etat")Etat etat);
 	
 	public List<Exemplaire> findByValeurExemplaire(Integer prix);
 

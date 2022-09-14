@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,11 +30,6 @@ import cardxMania.model.Serie;
 import cardxMania.model.Views;
 import cardxMania.model.Views.ViewCarteWithSerie;
 import cardxMania.service.CarteService;
-
-
-
-
-
 
 @RestController
 @RequestMapping("/api/carte")
@@ -60,9 +56,7 @@ public class CarteRestCOntroller {
 		
 		return optCarte.get();
 	}
-
 	
-
 	@ResponseStatus(code = HttpStatus.CREATED)
 	@PostMapping("")
 	@JsonView(Views.ViewCarte.class)
@@ -90,12 +84,12 @@ public class CarteRestCOntroller {
 	
 	@JsonView(Views.ViewCarteWithSerie.class)
 	@GetMapping("/serie")
-	public Optional<Carte> getByCarteWithSerie(@PathVariable Serie serie){
-			
+	public Optional<Carte> getByCarteWithSerie (@RequestParam(value="name") String name, Serie serie ) 
+			 {
 		return carteService.getByCarteWithSerie(serie);
 	}
 	
-	@GetMapping("/by-libelle/{libelle}")
+	@GetMapping("/{libelle}")
 	@JsonView(Views.ViewCarte.class)
 	public List<Carte> findAllByLibelle(@PathVariable String lib) {
 		return carteRepo.findByLibelleContaining(lib);
