@@ -89,19 +89,19 @@ public class LotRestController {
 	}
 
 	
-	@JsonView(Views.ViewLotWithUser.class)
-	@GetMapping("/acheteur")
-	public List<Lot> getByAcheteurWithAchat(@PathVariable User acheteur ){
-			
-		return lotService.findByAcheteurWithAchat(acheteur);
-	}
-	
-	@JsonView(Views.ViewLotWithUser.class)
-	@GetMapping("/vendeur")
-	public List<Lot> getByVendeurWithAchat(@PathVariable User vendeur ){
-			
-		return lotService.findByVendeurWithAchat(vendeur);
-	}
+//	@JsonView(Views.ViewLotWithUser.class)
+//	@GetMapping("/acheteur")
+//	public List<Lot> getByAcheteurWithAchat(@PathVariable User acheteur ){
+//			
+//		return lotService.findByAcheteurWithAchat(acheteur);
+//	}
+//	
+//	@JsonView(Views.ViewLotWithUser.class)
+//	@GetMapping("/vendeur")
+//	public List<Lot> getByVendeurWithAchat(@PathVariable User vendeur ){
+//			
+//		return lotService.findByVendeurWithAchat(vendeur);
+//	}
 }
 
 
