@@ -80,13 +80,15 @@ export class Carte {
     libelle: string;
     description: string;
     serie: string;
+    imgPath: string;
 
-    constructor(id?:number, cote?: number, libelle?: string, description?: string, serie?: string){
+    constructor(id?:number, cote?: number, libelle?: string, description?: string, serie?: string, imgPath? : string){
         this.id = id;
         this.cote = cote;
         this.libelle = libelle;
         this.description = description;
         this.serie = serie;
+        this.imgPath = imgPath;
     }
 }
 

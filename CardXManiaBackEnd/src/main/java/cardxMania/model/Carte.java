@@ -13,51 +13,48 @@ import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-
-
 @Entity
 public class Carte {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonView(Views.ViewBase.class)
 	protected Integer id;
-	
+
 	@JsonView(Views.ViewBase.class)
 	protected int cote;
-	
+
 	@JsonView(Views.ViewBase.class)
 	protected String libelle;
-	
+
+	@JsonView(Views.ViewBase.class)
+	protected String imgPath;
+
 	@Lob
 	private transient byte[] photo;
-	
+
 	@JsonView(Views.ViewBase.class)
 	private String description;
-	
-	@OneToMany(mappedBy="carte")
+
+	@OneToMany(mappedBy = "carte")
 	@JsonView(Views.ViewCartewithExemplaire.class)
 	private List<Exemplaire> exemplaires;
-	
+
 	@Enumerated(EnumType.STRING)
 	@JsonView(Views.ViewBase.class)
 	private Serie serie;
-	
-	
-	public Carte() {}
 
-	
+	public Carte() {
+	}
 
 	public Carte(int cote, String libelle, String description, Serie serie) {
 		super();
-		
+
 		this.cote = cote;
 		this.libelle = libelle;
 		this.description = description;
 		this.serie = serie;
 	}
-
-
 
 	public int getCote() {
 		return cote;
@@ -75,7 +72,6 @@ public class Carte {
 		this.cote = cote;
 	}
 
-
 	public void setDescription(String description) {
 		this.description = description;
 	}
@@ -84,8 +80,13 @@ public class Carte {
 		this.serie = serie;
 	}
 
+	public String getImgPath() {
+		return imgPath;
+	}
 
-
+	public void setImgPath(String imgPath) {
+		this.imgPath = imgPath;
+	}
 
 	public String getLibelle() {
 		return libelle;
@@ -120,10 +121,8 @@ public class Carte {
 //	}
 
 	public String toString() {
-		return "Carte [cote=" + cote + ", description=" + description + ", serie=" + serie + ", libelle=" + libelle + "]";
+		return "Carte [cote=" + cote + ", description=" + description + ", serie=" + serie + ", libelle=" + libelle
+				+ "]";
 	}
-	
-	
-	
-	
+
 }

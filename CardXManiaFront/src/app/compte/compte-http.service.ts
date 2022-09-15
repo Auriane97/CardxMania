@@ -33,6 +33,7 @@ export class CompteHttpService {
   }
 
   save(compte: Compte) {
+    compte.role = "USER";
     if(compte.id) { 
       this.http.put<Compte>(this.apiPath + compte.id, compte)
         .subscribe(resp => {

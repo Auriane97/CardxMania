@@ -20,7 +20,7 @@
                     <td>{{p.user}}</td>
                     <td>{{p.carte.libelle}}</td>
                     <td>{{p.etat}}</td>
-                    <td><img src="assets/img/alakazam.png" alt="titre" /></td>
+                    <td><img [src]="p.carte.imgPath" alt="titre" /></td>
                     <td>
                         <div class="btn-group btn-group-sm">
                             <a class="btn btn-primary" (click)="edit(p.id)"><i
