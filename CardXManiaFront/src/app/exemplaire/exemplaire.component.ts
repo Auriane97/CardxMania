@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Exemplaire } from 'src/model';
+import { Achat, Carte, Compte, Exemplaire } from 'src/model';
 import { ExemplaireHttpService } from './exemplaire-http.service';
 
 @Component({
@@ -22,22 +22,31 @@ export class ExemplaireComponent implements OnInit {
 
   add() {
     this.formExemplaire = new Exemplaire();
-    this.formExemplaire.
+    this.formExemplaire.carte = new Carte();
+    this.formExemplaire.user = new Compte();
+    this.formExemplaire.achats = new Array<Achat>();
   }
 
   edit(id: number) {
     this.exemplaireService.findById(id).subscribe(resp => {
       this.formExemplaire = resp;
 
-      if(!this.formExemplaire.adresse) {
-        this.formExemplaire.adresse = new Adresse();
+      if(!this.formExemplaire.carte) {
+        this.formExemplaire.carte = new Carte();
+      }
+      if(!this.formExemplaire.user) {
+        this.formExemplaire.user = new Compte();;
+      }
+
+      if(!this.formExemplaire.achats) {
+        this.formExemplaire.achats = new Array<Achat>();
       }
     });
   }
 
   save() {
     this.exemplaireService.save(this.formExemplaire);
-
+    
     this.cancel();
   }
 
