@@ -83,6 +83,7 @@ public class CompteRestController {
 
 	
 	@DeleteMapping("/{id}")
+	@JsonView(Views.ViewCompte.class)
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Integer id) {
 		compteService.deleteById(id);
