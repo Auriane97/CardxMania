@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  valider() {
+  entrer() {
     this.authService.login(this.pseudo, this.password).subscribe((resp) => {
       this.authService.utilisateur = resp;
       this.router.navigate(["/"]);
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
       if(error.status == "403") {
         this.loginError = true;
       }
-    });;
+    });
   }
 
 }

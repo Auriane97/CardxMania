@@ -11,8 +11,9 @@ import { ExemplaireComponent } from './exemplaire/exemplaire.component';
 import { LoginComponent } from './login/login.component';
 import { SearchComponent } from './search/search.component';
 import { APIInterceptor } from './api.interceptor';
-import { CompteHttpService } from './login/compte-http.service';
+import { CompteHttpService } from './compte/compte-http.service';
 import { FormsModule } from '@angular/forms';
+import { CompteComponent } from './compte/compte.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { FormsModule } from '@angular/forms';
     ExemplaireComponent,
     LoginComponent,
     SearchComponent,
+    CompteComponent,
    
   ],
   imports: [

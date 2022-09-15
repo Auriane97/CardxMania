@@ -18,7 +18,7 @@ export class APIInterceptor implements HttpInterceptor {
     const authReq = request.clone({
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
-        'CARDXMANIA-KEY-KEY': this.appConfig.apiKey
+        'CARDXMANIA-KEY': this.appConfig.apiKey
       })
     });
     
