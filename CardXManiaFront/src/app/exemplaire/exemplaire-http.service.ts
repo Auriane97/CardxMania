@@ -28,7 +28,7 @@ export class ExemplaireHttpService {
       this.cartes = response;
     });
   }
-  findAllExemplaires(): Array<Exemplaire> {
+  findAll(): Array<Exemplaire> {
     return this.exemplaires;
   }
 
@@ -41,7 +41,7 @@ export class ExemplaireHttpService {
   }
 
   findByCarte(id: number): Array <Exemplaire> {
-    //return this.http.get<Array<Exemplaire>>(this.apiPath+"carte/"+id);
+   // return this.http.get<Array<Exemplaire>>(this.apiPath+"carte/"+id);
     return this.exemplaires;
   }
 

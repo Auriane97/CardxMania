@@ -8,6 +8,8 @@
                     <th>User</th>
                     <th>Libelle</th>
                     <th>Etat</th>
+                    <th>Image</th>
+
                 </tr>
             </thead>
 
@@ -18,6 +20,7 @@
                     <td>{{p.user}}</td>
                     <td>{{p.carte.libelle}}</td>
                     <td>{{p.etat}}</td>
+                    <td><img src="assets/img/{{p.carte.libelle}}.png" alt="titre" /></td>
                     <td>
                         <div class="btn-group btn-group-sm">
                             <a class="btn btn-primary" (click)="edit(p.id)"><i
@@ -40,7 +43,7 @@
 
 
 
-<div class="card mt-3">
+<div class="card mt-3" *ngIf="formExemplaire">
     <div class="card-header bg-primary text-white ">Edition d'un exemplaire</div>
     <div class="card-body">
         <div class="form-group">
@@ -49,6 +52,11 @@
                 <option selected="true" disabled="disabled">Sélectionnez une carte</option> 
                 <option *ngFor="let f of listCartes()" [value]="f.id">{{f.libelle}}</option>   
             </select>
+        <div class="form-group">
+            <label for="pseudo">etat:</label> <input type="text" class="form-control" id="pseudo" name="pseudo"
+                [(ngModel)]="formExemplaire.etat" />
+        </div>
+
         </div> 
 
     </div>
