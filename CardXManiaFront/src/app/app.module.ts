@@ -15,8 +15,7 @@ import { CompteHttpService } from './compte/compte-http.service';
 import { FormsModule } from '@angular/forms';
 import { CompteComponent } from './compte/compte.component';
 import { ExemplaireHttpService } from './exemplaire/exemplaire-http.service';
-import { ExemplaireLibellePipe } from './exemplaire-libelle.pipe';
-import { CategoryComponent } from './category/category.component';
+import { SearchService } from './search/search-http.service';
 
 
 @NgModule({
@@ -44,7 +43,7 @@ import { CategoryComponent } from './category/category.component';
     
     CompteHttpService,
     ExemplaireHttpService,
-    
+    SearchService
     
   ],
   bootstrap: [AppComponent]
