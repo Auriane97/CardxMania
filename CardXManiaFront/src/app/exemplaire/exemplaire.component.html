@@ -1,1 +1,61 @@
-<p>exemplaire works!</p>
+<div class="card mt-3">
+    <div class="card-header bg-primary text-white display-6">Liste des produits</div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Identifiant</th>
+                    <th>User</th>
+                    <th>Libelle</th>
+                    <th>Etat</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr *ngFor="let p of listExemplaires()">
+                    <td>{{p.id}}</td>
+                    <td>{{p.user}}</td>
+                    <td>{{p.carte.libelle}}</td>
+                    <td>{{p.etat}}</td>
+                    <td>
+                        <div class="btn-group btn-group-sm">
+                            <a class="btn btn-primary" (click)="edit(p.id)"><i
+                                    class="bi bi-pencil-square"></i></a>
+                            <a class="btn btn-danger" (click)="delete(p.id)"><i class="bi bi-trash"></i></a>
+                        </div>
+                    </td>
+                </tr> 
+            </tbody>
+
+        </table>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-success btn-lg" (click)="add()"><i
+            class="bi bi-plus-square"></i></a>
+    </div>
+</div>
+
+
+
+
+
+<div class="card mt-3">
+    <div class="card-header bg-primary text-white ">Edition d'un exemplaire</div>
+    <div class="card-body">
+        <div class="form-group">
+            <label for="carte">Carte:</label> 
+            <select [(ngModel)]="valueCarte.id">
+                <option selected="true" disabled="disabled">Sélectionnez une carte</option> 
+                <option *ngFor="let f of listCartes()" [value]="f.id">{{f.libelle}}</option>   
+            </select>
+        </div> 
+
+    </div>
+    <div class="card-footer">
+        <div class="btn-group btn-group-lg float-right">
+            <a class="btn btn-success" (click)="save()"><i class="bi bi-check-square-fill"></i></a>
+            <a class="btn btn-warning" (click)="cancel()"><i class="bi bi-backspace-fill"></i></a>
+        </div>
+    </div>
+</div>

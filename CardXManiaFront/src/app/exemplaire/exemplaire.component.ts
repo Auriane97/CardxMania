@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Achat, Carte, Compte, Exemplaire } from 'src/model';
+import { Achat, Carte, Compte, Exemplaire, User } from 'src/model';
 import { ExemplaireHttpService } from './exemplaire-http.service';
 
 @Component({
@@ -10,41 +10,41 @@ import { ExemplaireHttpService } from './exemplaire-http.service';
 export class ExemplaireComponent implements OnInit {
 
   formExemplaire: Exemplaire;
+  user: User;
+  valueCarte: Carte;
+  achats: Array<Achat>;
 
   constructor(private exemplaireService: ExemplaireHttpService) { }
 
   ngOnInit(): void {
   }
 
-  list(): Array<Exemplaire> {
-    return this.exemplaireService.findAll();
+  listExemplaires(): Array<Exemplaire> {
+    return this.exemplaireService.findAllExemplaires();
+  }
+
+  listCartes(): Array<Carte> {
+    return this.exemplaireService.findAllCartes();
   }
 
   add() {
     this.formExemplaire = new Exemplaire();
-    this.formExemplaire.carte = new Carte();
-    this.formExemplaire.user = new Compte();
-    this.formExemplaire.achats = new Array<Achat>();
+    this.valueCarte = new Carte();
+    //this.formExemplaire.achats = new Array<Achat>();
   }
 
   edit(id: number) {
     this.exemplaireService.findById(id).subscribe(resp => {
       this.formExemplaire = resp;
+      this.valueCarte = this.formExemplaire.carte;
+     // this.user = this.formExemplaire.user;
+      //this.achats = this.formExemplaire.achats;
 
-      if(!this.formExemplaire.carte) {
-        this.formExemplaire.carte = new Carte();
-      }
-      if(!this.formExemplaire.user) {
-        this.formExemplaire.user = new Compte();;
-      }
-
-      if(!this.formExemplaire.achats) {
-        this.formExemplaire.achats = new Array<Achat>();
-      }
     });
   }
 
   save() {
+    this.formExemplaire.carte = this.valueCarte;
     this.exemplaireService.save(this.formExemplaire);
     
     this.cancel();

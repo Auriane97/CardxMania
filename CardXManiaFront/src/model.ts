@@ -33,13 +33,14 @@ export class Exemplaire {
     achats: Array<Achat> = new Array<Achat>();
     
 
-    constructor(id?: number, achats?: Array<Achat>, user?: User, enVente?: boolean, valeurExemplaire?: number, carte?: Carte) {
+    constructor(id?: number, achats?: Array<Achat>, user?: User, enVente?: boolean, valeurExemplaire?: number, carte?: Carte, etat?: string) {
         this.id = id;
         this.achats = achats;
         this.user = user;
         this.enVente =  enVente;
         this.valeurExemplaire = valeurExemplaire;
         this.carte = carte;
+        this.etat = etat;
     }
     
 }

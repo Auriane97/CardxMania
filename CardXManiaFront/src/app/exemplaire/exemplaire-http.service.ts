@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Exemplaire } from 'src/model';
+import { Carte, Exemplaire } from 'src/model';
 import { AppConfigService } from '../app-config.service';
 
 @Injectable({
@@ -10,6 +10,7 @@ import { AppConfigService } from '../app-config.service';
 export class ExemplaireHttpService {
 
   exemplaires: Array<Exemplaire> = new Array<Exemplaire>();
+  cartes: Array<Carte> = new Array<Carte>();
 
   apiPath: string;
   
@@ -22,15 +23,38 @@ export class ExemplaireHttpService {
     this.http.get<Array<Exemplaire>>(this.apiPath).subscribe(response => {
       this.exemplaires = response;
     });
-  }
 
-  findAll(): Array<Exemplaire> {
+    this.http.get<Array<Carte>>(this.appConfig.apiBackEndUrl+"carte").subscribe(response => {
+      this.cartes = response;
+    });
+  }
+  findAllExemplaires(): Array<Exemplaire> {
     return this.exemplaires;
   }
 
-  findById(id: number): Observable<Exemplaire> {
-    return this.http.get<Exemplaire>(this.apiPath+id);
+  findAllCartes(): Array<Carte> {
+    return this.cartes;
   }
+
+  findById(id: number): Observable<Exemplaire> {
+    return this.http.get<Exemplaire>(this.apiPath+id);  
+  }
+
+  findByCarte(id: number): Array <Exemplaire> {
+    //return this.http.get<Array<Exemplaire>>(this.apiPath+"carte/"+id);
+    return this.exemplaires;
+  }
+
+  findByEtat(etat: string){
+
+  }
+
+
+  findByEnVente(enVente: boolean){
+
+  }
+
+
 
   save(exemplaire: Exemplaire) {
     if(exemplaire.id) { // modification
