@@ -12,27 +12,26 @@ input:valid {
 
 
 <div class="card mt-3">
-    <div class="card-header bg-primary text-white display-6">Liste des exemplaires</div>
+    <div class="card-header bg-primary text-white display-5">Liste des exemplaires</div>
     <div class="card-body">
-        <table class="table table-striped">
+        <table class="table table-striped" align="center">
             <thead>
-                <tr>
-                    <th>Identifiant</th>
+                <tr align="center">
                     <th>Libelle</th>
+                    <th> Description</th>
                     <th>Etat</th>
                     <th>Carte</th>
-
                 </tr>
             </thead>
 
             <tbody>
 
                 <tr *ngFor="let p of listExemplaires()">
-                    <td>{{p.id}}</td>
-                    <td>{{p.carte.libelle}}</td>
-                    <td>{{p.etat}}</td>
-                    <td><img [src]="p.carte.imgPath" alt="titre" /></td>
-                    <td>
+                    <td align="center">{{p.carte.libelle}}</td>
+                    <td align="center">{{p.carte.description}}</td>
+                    <td align="center">{{p.etat}}</td>
+                    <td align="center"><img [src]="p.carte.imgPath" alt="titre" /></td>
+                    <td align="center">
                         <div class="btn-group btn-group-sm">
                             <a class="btn btn-primary" (click)="edit(p.id)"><i
                                     class="bi bi-pencil-square"></i></a>
