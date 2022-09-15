@@ -5,6 +5,7 @@
 /*
 modif pour la banniere avec les liens */
 
+
 nav a {
  background: #5E5DF0;
     border-radius: 999px;
@@ -23,9 +24,8 @@ nav a {
     -webkit-user-select: none;
     touch-action: manipulation;
     width: fit-content;
-    word-break: break-word;
     border: 0;
-    display: inline-block;
+    display: flex;
     margin-bottom: 5%;
 }
 
@@ -50,6 +50,9 @@ list-style-type: none;
 margin: 10;
 padding: 0;
 overflow: hidden;
+   margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
 li {
@@ -91,21 +94,69 @@ div {
 margin: 10;
 }
 
-body{
- background: rgb(250,216,208);
-background: linear-gradient(180deg, rgba(250,216,208,0.33657212885154064) 0%, rgba(244,254,254,0.9640231092436975) 18%);
+
+/* ////////////// */
+
+*, *:before, *:after {
+  box-sizing: border-box;
 }
+
+html {
+  font-size: 100%;
+}
+
+
+.footer {
+  display: inline-block;
+  flex-flow: row wrap;
+  padding: 30px 30px 20px 30px;
+  color: #000000;
+  background-color: #fff;
+  border-top: 1px solid #e5e5e5;
+  text-align: center;
+   margin: auto;
+   width: 1800px;
+
+}
+
+footer{
+    bottom: 0;
+    width: 100%;
+}
+
+.footer__addr h2 {
+  
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.nav__title {
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.footer address {
+  font-style: normal;
+  color: #999;
+}
+
+
+
+.heart {
+  color: #2f2f2f;
+}
+
 
 </style>
 
 
-    <body>
+<body>
         
   
 
 <div>
 <!-- banniere -->
-<nav class="nav nav-pills">
+<nav class="nav">
     <ul>
         <li style="float:left" class="nav-item" [routerLink]="['/accueil']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a href="">Accueil</a></li>
         <li class="nav-item"> <a class="nav-link" [routerLink]="['/login']" routerLinkActive="active">Login</a></li>
@@ -120,10 +171,37 @@ background: linear-gradient(180deg, rgba(250,216,208,0.33657212885154064) 0%, rg
     </ul>
 </nav>
 <!-- banniere -->
-</div>
+
 
 <div class="container">
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div>
+
+<footer class="footer">
+  <div class="footer__addr">
+    <h1 class="footer__logo">A propos</h1>
+    <h2>Nous contacter</h2>
+    <address>
+      <a class="button" href="mailto:cardxmania@gmail.com">Petit mail</a>
+    </address>
+  </div>
+
+
+  <div class="legal">
+    <p>&copy; 2022 Groupe 2 All rights reserved.</p>
+
+    <div class="legal__links">
+      <span>Made with <span class="heart">♥</span> remotely with AJC</span>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</div>
+
+
+
 
 </body>
