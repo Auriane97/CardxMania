@@ -15,6 +15,8 @@ import { CompteHttpService } from './compte/compte-http.service';
 import { FormsModule } from '@angular/forms';
 import { CompteComponent } from './compte/compte.component';
 import { ExemplaireHttpService } from './exemplaire/exemplaire-http.service';
+import { ExemplaireLibellePipe } from './exemplaire-libelle.pipe';
+import { CategoryComponent } from './category/category.component';
 
 
 @NgModule({
@@ -26,6 +28,8 @@ import { ExemplaireHttpService } from './exemplaire/exemplaire-http.service';
     LoginComponent,
     SearchComponent,
     CompteComponent,
+    ExemplaireLibellePipe,
+    CategoryComponent,
    
   ],
   imports: [

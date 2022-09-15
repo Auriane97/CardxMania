@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Carte } from 'src/model';
+import { Carte, Exemplaire } from 'src/model';
 import { AppConfigService } from '../app-config.service';
 
 @Injectable({
@@ -9,7 +9,7 @@ import { AppConfigService } from '../app-config.service';
 })
 export class SearchService {
   cartes: Array<Carte> = new Array<Carte>();
-
+  exemplaires: Array<Exemplaire> = new Array<Exemplaire>();
   apiPath: string;
 
   constructor(private http: HttpClient, private appConfig: AppConfigService) {
@@ -30,4 +30,9 @@ export class SearchService {
   findById(id: number): Observable<Carte> {
     return this.http.get<Carte>(this.apiPath+id);
   }
+
+  findAllByLibelle(libelle:String): Array<Carte>{
+    return this.cartes.filter(carte => carte.libelle.indexOf(carte.libelle) != -1);
+  }
+  
 }
