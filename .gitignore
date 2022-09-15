@@ -19993,3 +19993,7 @@ CardXManiaFront/node_modules/@angular-devkit/schematics/tools/schema-option-tran
 CardXManiaFront/node_modules/@angular-devkit/schematics/tools/schema-option-transform.js
 CardXManiaFront/node_modules/@angular-devkit/schematics/tools/workflow/node-workflow.d.ts
 CardXManiaFront/node_modules/@angular-devkit/schematics/tools/workflow/node-workflow.js
+
+CardXManiaFront/node_modules/
+
+CardXManiaFront/.angular/
