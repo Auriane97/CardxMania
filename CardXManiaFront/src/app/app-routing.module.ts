@@ -4,7 +4,6 @@ import { HomeComponent } from './acceuil/home.component';
 import { CartComponent } from './cart/cart.component';
 import { CompteComponent } from './compte/compte.component';
 import { ExemplaireComponent } from './exemplaire/exemplaire.component';
-
 import { LoginComponent } from './login/login.component';
 import { SearchComponent } from './search/search.component';
 
