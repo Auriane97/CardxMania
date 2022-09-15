@@ -34,9 +34,9 @@ public class CompteService {
 		return compteRepo.save(compte);
 	}
 
-	public void deleteByCompte(String pseudo) {
-		compteRepo.deleteByCompte(pseudo);
-	}
+//	public void deleteByCompte(String pseudo) {
+//		compteRepo.deleteByCompte(pseudo);
+//	}
 	
 	public void deleteById(Integer id) {
 		compteRepo.deleteById(id);

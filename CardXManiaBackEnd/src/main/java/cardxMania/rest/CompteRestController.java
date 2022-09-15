@@ -100,9 +100,9 @@ public class CompteRestController {
 	}
 	
 	
-	@DeleteMapping("/{pseudo}")
-	public void deleteByCompte(@PathVariable String pseudo) {
-		compteService.deleteByCompte(pseudo);
-	}
+//	@DeleteMapping("/{pseudo}")
+//	public void deleteByCompte(@PathVariable String pseudo) {
+//		compteService.deleteByCompte(pseudo);
+//	}
 
 }
