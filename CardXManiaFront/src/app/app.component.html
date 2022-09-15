@@ -23,10 +23,10 @@ nav a {
     -webkit-user-select: none;
     touch-action: manipulation;
     width: fit-content;
-    word-break: break-word;
     border: 0;
-    display: inline-block;
+    display: flex;
     margin-bottom: 5%;
+    text-align: center;
 }
 
 nav form {
@@ -119,7 +119,6 @@ html {
 
 footer{
     bottom: 0;
-    position: fixed;
     width: 100%;
 }
 
@@ -155,7 +154,7 @@ footer{
 
 <div>
 <!-- banniere -->
-<nav class="nav nav-pills">
+<nav class="nav nav-boutton">
     <ul>
         <li style="float:left" class="nav-item" [routerLink]="['/accueil']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a href="">Accueil</a></li>
         <li class="nav-item"> <a class="nav-link" [routerLink]="['/login']" routerLinkActive="active">Login</a></li>
@@ -171,35 +170,35 @@ footer{
 <!-- banniere -->
 
 
-
-
-
-
-</div>
-
 <div class="container">
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div>
-
-
 
 <footer class="footer">
-    <div class="footer__addr">
-        <h1 class="footer__logo">A propos</h1>
-        <h2>Nous contacter</h2>
-        <address>
-            <a class="button" href="mailto:cardxmania@gmail.com">Petit mail</a>
-        </address>
+  <div class="footer__addr">
+    <h1 class="footer__logo">A propos</h1>
+    <h2>Nous contacter</h2>
+    <address>
+      <a class="button" href="mailto:cardxmania@gmail.com">Petit mail</a>
+    </address>
+  </div>
+
+
+  <div class="legal">
+    <p>&copy; 2022 Groupe 2 All rights reserved.</p>
+
+    <div class="legal__links">
+      <span>Made with <span class="heart">♥</span> remotely with AJC</span>
     </div>
-
-
-    <div class="legal">
-        <p>&copy; 2022 Groupe 2 All rights reserved.</p>
-
-        <div class="legal__links">
-            <span>Made with <span class="heart">♥</span> remotely with AJC</span>
-        </div>
-    </div>
+  </div>
 </footer>
+
+
+
+
+</div>
+
+
+
 
 </body>
