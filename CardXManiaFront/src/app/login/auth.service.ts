@@ -10,6 +10,7 @@ import { Compte } from 'src/model';
 export class AuthService {
 
   compte: Compte;
+  utilisateur: Compte;
 
   constructor(private http: HttpCompte, private appConfig: AppConfigService) { }
 
