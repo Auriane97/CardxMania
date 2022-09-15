@@ -28,8 +28,6 @@ import cardxMania.model.Views;
 import cardxMania.rest.dto.LoginDTO;
 import cardxMania.service.CompteService;
 
-
-
 @RestController
 @RequestMapping("/api/compte")
 @CrossOrigin("*")
@@ -102,9 +100,9 @@ public class CompteRestController {
 	}
 	
 	
-//	@DeleteMapping("/{id}")
-//	public void deleteByCompte(@PathVariable String pseudo) {
-//		compteRepo.deleteByCompte(pseudo);
-//	}
+	@DeleteMapping("/{pseudo}")
+	public void deleteByCompte(@PathVariable String pseudo) {
+		compteService.deleteByCompte(pseudo);
+	}
 
 }
