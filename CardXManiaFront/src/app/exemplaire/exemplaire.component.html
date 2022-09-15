@@ -1,14 +1,26 @@
+
+<style>
+input:invalid {
+  border: 2px dashed red;
+}
+
+input:valid {
+  border: 1px solid black;
+}
+
+</style>
+
+
 <div class="card mt-3">
-    <div class="card-header bg-primary text-white display-6">Liste des Cartes</div>
+    <div class="card-header bg-primary text-white display-6">Liste des exemplaires</div>
     <div class="card-body">
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th>Identifiant</th>
-                    <th>User</th>
                     <th>Libelle</th>
                     <th>Etat</th>
-                    <th>Image</th>
+                    <th>Carte</th>
 
                 </tr>
             </thead>
@@ -17,7 +29,6 @@
 
                 <tr *ngFor="let p of listExemplaires()">
                     <td>{{p.id}}</td>
-                    <td>{{p.user}}</td>
                     <td>{{p.carte.libelle}}</td>
                     <td>{{p.etat}}</td>
                     <td><img [src]="p.carte.imgPath" alt="titre" /></td>
@@ -50,13 +61,9 @@
             <label for="carte">Carte:</label> 
             <select [(ngModel)]="valueCarte.id">
                 <option selected="true" disabled="disabled">Sélectionnez une carte</option> 
-                <option *ngFor="let f of listCartes()" [value]="f.id">{{f.libelle}}</option>   
-            </select>
-        <div class="form-group">
-            <label for="pseudo">etat:</label> <input type="text" class="form-control" id="pseudo" name="pseudo"
-                [(ngModel)]="formExemplaire.etat" />
-        </div>
-
+                <option *ngFor="let f of listCartes()" [value]="f.id">{{f.libelle}}</option>  
+            </select><br>
+            <label>Etat:</label><input type="text" class="form-control" id="etat" name="etat" [(ngModel)]="formExemplaire.etat" placeholder="Abimee/BonEtat/Neuf" required/>
         </div> 
 
     </div>
