@@ -20,7 +20,7 @@ export class ExemplaireComponent implements OnInit {
   }
 
   listExemplaires(): Array<Exemplaire> {
-    return this.exemplaireService.findAllExemplaires();
+    return this.exemplaireService.findAll();
   }
 
   listCartes(): Array<Carte> {
