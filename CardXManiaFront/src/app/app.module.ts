@@ -15,7 +15,6 @@ import { CompteHttpService } from './compte/compte-http.service';
 import { FormsModule } from '@angular/forms';
 import { CompteComponent } from './compte/compte.component';
 import { ExemplaireHttpService } from './exemplaire/exemplaire-http.service';
-import { SearchService } from './search/search-http.service';
 
 
 @NgModule({
@@ -27,8 +26,6 @@ import { SearchService } from './search/search-http.service';
     LoginComponent,
     SearchComponent,
     CompteComponent,
-    ExemplaireLibellePipe,
-    CategoryComponent,
    
   ],
   imports: [
