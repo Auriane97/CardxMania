@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
-import { HttpCompte } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Compte } from 'src/model';
+import { AppConfigService } from '../app-config.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CompteService {
+export class CompteHttpService {
 
   comptes: Array<Compte> = new Array<Compte>();
 
   apiPath: string;
 
-  constructor(private http: HttpCcompte, private appConfig: AppConfigService) {
+  constructor(private http: HttpClient, private appConfig: AppConfigService) {
     this.apiPath = this.appConfig.apiBackEndUrl + "compte/";
     this.load();
   }
@@ -32,12 +33,12 @@ export class CompteService {
   }
 
   save(compte: Compte) {
-    if(compte.id) { // modification
+    if(compte.id) { 
       this.http.put<Compte>(this.apiPath + compte.id, compte)
         .subscribe(resp => {
           this.load();
         });
-    } else { // création
+    } else { 
       this.http.post<Compte>(this.apiPath, compte)
         .subscribe(resp => {
           this.load();
