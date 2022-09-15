@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Exemplaire } from 'src/model';
+import { ExemplaireHttpService } from './exemplaire-http.service';
 
 @Component({
   selector: 'app-exemplaire',
@@ -7,9 +9,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExemplaireComponent implements OnInit {
 
-  constructor() { }
+  formExemplaire: Exemplaire;
+
+  constructor(private exemplaireService: ExemplaireHttpService) { }
 
   ngOnInit(): void {
   }
 
+  list(): Array<Exemplaire> {
+    return this.exemplaireService.findAll();
+  }
+
+  add() {
+    this.formExemplaire = new Exemplaire();
+    this.formExemplaire.
+  }
+
+  edit(id: number) {
+    this.exemplaireService.findById(id).subscribe(resp => {
+      this.formExemplaire = resp;
+
+      if(!this.formExemplaire.adresse) {
+        this.formExemplaire.adresse = new Adresse();
+      }
+    });
+  }
+
+  save() {
+    this.exemplaireService.save(this.formExemplaire);
+
+    this.cancel();
+  }
+
+  cancel() {
+    this.formExemplaire = null;
+  }
+
+  delete(id: number) {
+    this.exemplaireService.delete(id);
+  }
 }
