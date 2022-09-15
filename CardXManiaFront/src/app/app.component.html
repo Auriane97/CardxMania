@@ -6,55 +6,50 @@
 modif pour la banniere avec les liens */
 
 nav a {
-color: #0976f3;
-padding: 0px 16px;
-border-radius: 3px;
-width: 100%;
-font-weight: 600;
-font-size: 16px;
-display: block;
-padding: 8px;
-text-align: center;
-
+ background: #5E5DF0;
+    border-radius: 999px;
+    box-shadow: #5E5DF0 0 10px 20px -10px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    opacity: 1;
+    outline: 0 solid transparent;
+    padding: 8px 18px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: fit-content;
+    word-break: break-word;
+    border: 0;
+    display: inline-block;
+    margin-bottom: 5%;
 }
 
 nav form {
-color: #0976f3;
 padding: 0px 16px;
-border-radius: 3px;
+border-radius: 5px 0 0 5px;
 width: 100%;
-font-weight: 600;
+font-weight: 150;
 font-size: 16px;
-display: block;
-padding: 8px;
+ display: inline-block;
 text-align: center;
-
 }
 
-nav h1 {
-color: #0976f3;
-padding: 0px 16px;
-border-radius: 3px;
-width: 100%;
-font-weight: 600;
-font-size: 16px;
-display: block;
-padding: 8px;
-float: left;
-
-}
 
 nav a:hover {
-background-color: rgb(220, 253, 255);
-color: black;
+background-color: #2E282A;
+color: rgb(248, 239, 239);
 }
 
 ul {
 list-style-type: none;
-margin: 0;
+margin: 10;
 padding: 0;
 overflow: hidden;
-
 }
 
 li {
@@ -68,8 +63,45 @@ transition: width 0.4s ease-in-out;
 input[type=text]:focus {
 width: 60%;
 }
+
+button {
+
+ background: #5E5DF0;
+    border-radius: 999px;
+    box-shadow: #5E5DF0 0 10px 20px -10px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 10px;
+    opacity: 1;
+    outline: 0 solid transparent;
+    padding: 8px 18px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: fit-content;
+    border: 0;
+    margin-bottom: 5%;
+}
+
+
+div {
+margin: 10;
+}
+
+body{
+ background: rgb(250,216,208);
+background: linear-gradient(180deg, rgba(250,216,208,0.33657212885154064) 0%, rgba(244,254,254,0.9640231092436975) 18%);
+}
+
 </style>
 
+
+    <body>
+        
+  
 
 <div>
 <!-- banniere -->
@@ -82,7 +114,7 @@ width: 60%;
         <li class="nav-item"> <a class="nav-link" [routerLink]="['/exemplaire']" routerLinkActive="active">Créer Exemplaire</a></li>
         <form action="/search">
             <input id="searchbar" type="text" name="q" placeholder="Exemplaire, Carte">
-            <button class="button" style="vertical-align:middle"><span>Go </span></button>
+            <button class="button" type="submit" ><span>Go </span></button>
         </form>
     </ul>
 </nav>
@@ -92,3 +124,5 @@ width: 60%;
 <div class="container">
     <router-outlet></router-outlet>
 </div>
+
+</body>
