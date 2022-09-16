@@ -13,10 +13,20 @@ export class ExemplaireComponent implements OnInit {
   user: User;
   valueCarte: Carte;
   achats: Array<Achat>;
+  recherche: string;
+  exemplaires: Array<Exemplaire>;
 
   constructor(private exemplaireService: ExemplaireHttpService) { }
 
   ngOnInit(): void {
+  }
+
+  search(): Array<Exemplaire> {
+    if(this.recherche) {
+        this.exemplaires = this.exemplaireService.findAll();
+        return this.exemplaires.filter(cli => cli.carte.serie.indexOf(this.recherche) != -1);
+    }
+    return this.exemplaireService.findAll();
   }
 
   listExemplaires(): Array<Exemplaire> {
