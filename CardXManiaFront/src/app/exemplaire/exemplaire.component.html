@@ -43,19 +43,25 @@ img{
     </div>
     <div class="card-header bg-secondary text-white display-5">Liste des exemplaires</div>
     <div class="card-body">
+        <input type="text" placeholder="Chercher une serie" [(ngModel)]="recherche" />
         <table class="table table-striped" align="center">
             <thead>
                 <tr align="center">
+                    <th>Numéro</th>
+                    <th>Serie</th>
                     <th>Libelle</th>
                     <th> Description</th>
                     <th>Etat</th>
                     <th>Carte</th>
+                    <th></th>
                 </tr>
             </thead>
 
             <tbody>
 
-                <tr *ngFor="let p of listExemplaires()">
+                <tr *ngFor="let p of search()">
+                    <td align="center">{{p.id}}</td>
+                    <td align="center">{{p.carte.serie}}</td>
                     <td align="center">{{p.carte.libelle}}</td>
                     <td align="center">{{p.carte.description}}</td>
                     <td align="center">{{p.etat}}</td>

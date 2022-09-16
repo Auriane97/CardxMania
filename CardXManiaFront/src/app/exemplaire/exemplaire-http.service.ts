@@ -11,7 +11,7 @@ export class ExemplaireHttpService {
 
   exemplaires: Array<Exemplaire> = new Array<Exemplaire>();
   cartes: Array<Carte> = new Array<Carte>();
-
+  recherche: string;
   apiPath: string;
   
   constructor(private http: HttpClient, private appConfig: AppConfigService) {
@@ -28,6 +28,7 @@ export class ExemplaireHttpService {
       this.cartes = response;
     });
   }
+
   findAll(): Array<Exemplaire> {
     return this.exemplaires;
   }
