@@ -17,7 +17,31 @@ img{
 
 
 <div class="card mt-3">
-    <div class="card-header bg-primary text-white display-5">Liste des exemplaires</div>
+    <div class="card-footer">
+        <a class="btn btn-success btn-lg" (click)="add()"><i
+            class="bi bi-plus-square"></i></a>
+    </div>
+    <div class="card mt-3" *ngIf="formExemplaire">
+        <div class="card-header bg-secondary text-white display-6 ">Edition d'un exemplaire</div>
+        <div class="card-body">
+            <div class="form-group">
+                <label for="carte">Carte:</label> 
+                <select [(ngModel)]="valueCarte.id">
+                    <option selected="true" disabled="disabled">Sélectionnez une carte</option> 
+                    <option *ngFor="let f of listCartes()" [value]="f.id">{{f.libelle}}</option>  
+                </select><br>
+                <label>Etat:</label><input type="text" class="form-control" id="etat" name="etat" [(ngModel)]="formExemplaire.etat" placeholder="Abimee/BonEtat/Neuf" required/>
+            </div> 
+    
+        </div>
+        <div class="card-footer">
+            <div class="btn-group btn-group-lg float-right">
+                <a class="btn btn-success" (click)="save()"><i class="bi bi-check-square-fill"></i></a>
+                <a class="btn btn-warning" (click)="cancel()"><i class="bi bi-backspace-fill"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="card-header bg-secondary text-white display-5">Liste des exemplaires</div>
     <div class="card-body">
         <table class="table table-striped" align="center">
             <thead>
@@ -48,33 +72,9 @@ img{
 
         </table>
     </div>
-    <div class="card-footer">
-        <a class="btn btn-success btn-lg" (click)="add()"><i
-            class="bi bi-plus-square"></i></a>
-    </div>
 </div>
 
 
 
 
 
-<div class="card mt-3" *ngIf="formExemplaire">
-    <div class="card-header bg-primary text-white ">Edition d'un exemplaire</div>
-    <div class="card-body">
-        <div class="form-group">
-            <label for="carte">Carte:</label> 
-            <select [(ngModel)]="valueCarte.id">
-                <option selected="true" disabled="disabled">Sélectionnez une carte</option> 
-                <option *ngFor="let f of listCartes()" [value]="f.id">{{f.libelle}}</option>  
-            </select><br>
-            <label>Etat:</label><input type="text" class="form-control" id="etat" name="etat" [(ngModel)]="formExemplaire.etat" placeholder="Abimee/BonEtat/Neuf" required/>
-        </div> 
-
-    </div>
-    <div class="card-footer">
-        <div class="btn-group btn-group-lg float-right">
-            <a class="btn btn-success" (click)="save()"><i class="bi bi-check-square-fill"></i></a>
-            <a class="btn btn-warning" (click)="cancel()"><i class="bi bi-backspace-fill"></i></a>
-        </div>
-    </div>
-</div>
