@@ -1,0 +1,39 @@
+<p>admin works!</p>
+<div class="card border-dark mb-3">
+    <div class="card-header bg-secondary text-white display-6">Liste des comptes</div>
+    <div class="card-body text-info">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    
+                    <th>id</th>
+                    <th>Pseudo</th>
+                    <th>Mot de Passe</th>
+                    <th>E-mail</th>
+                    
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let compte of list()">
+                   
+                    <td>{{compte.id}}</td>
+                    <td>{{compte.pseudo}}</td>
+                    <td type="password">{{compte.password}}</td>
+                    <td>{{compte.mail}}</td>
+                    
+                    <td>
+                        <div class="btn-group btn-group-sm">
+                            <a class="btn btn-primary" (click)="edit(compte.id)"><i
+                                    class="bi bi-pencil-square"></i></a>
+                            <a class="btn btn-danger" (click)="delete(compte.id)"><i class="bi bi-trash"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+   
+</div>

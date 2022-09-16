@@ -159,10 +159,12 @@ footer{
 <nav class="nav">
     <ul>
         <li style="float:left" class="nav-item" [routerLink]="['/accueil']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a href="">Accueil</a></li>
+        <li class="nav-item"> <a class="nav-link" [routerLink]="['/admin']" routerLinkActive="active">Admin</a></li>
         <li class="nav-item"> <a class="nav-link" [routerLink]="['/login']" routerLinkActive="active">Login</a></li>
         <li class="nav-item"> <a class="nav-link" [routerLink]="['/search']" routerLinkActive="active">Recherche</a></li>
         <li class="nav-item"> <a class="nav-link" [routerLink]="['/exemplaire']" routerLinkActive="active">Créer Exemplaire</a></li>
         <li class="nav-item"> <a class="nav-link" [routerLink]="['/compte']" routerLinkActive="active">Créer un Compte</a></li>
+       
         <form action="/search">
             <input id="searchbar" type="text" name="q" placeholder="Exemplaire, Carte">
             <button class="button" type="submit" ><span>Go </span></button>

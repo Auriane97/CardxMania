@@ -1,44 +1,4 @@
-<div class="card border-dark mb-3">
-    <div class="card-header bg-secondary text-white display-6">Liste des comptes</div>
-    <div class="card-body text-info">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    
-                    <th>id</th>
-                    <th>Pseudo</th>
-                    <th>Mot de Passe</th>
-                    <th>E-mail</th>
-                    
-                    <th></th>
-                </tr>
-            </thead>
 
-            <tbody>
-                <tr *ngFor="let compte of list()">
-                   
-                    <td>{{compte.id}}</td>
-                    <td>{{compte.pseudo}}</td>
-                    <td type="password">{{compte.password}}</td>
-                    <td>{{compte.mail}}</td>
-                    
-                    <td>
-                        <div class="btn-group btn-group-sm">
-                            <a class="btn btn-primary" (click)="edit(compte.id)"><i
-                                    class="bi bi-pencil-square"></i></a>
-                            <a class="btn btn-danger" (click)="delete(compte.id)"><i class="bi bi-trash"></i></a>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-
-        </table>
-    </div>
-    <div class="card-footer">
-        <a class="btn btn-success btn-lg" (click)="add()"><i
-            class="bi bi-plus-square"></i></a>
-    </div>
-</div>
 <div class="card mt-3" *ngIf="formCompte">
     <div class="card-header bg-secondary text-white display-6">Creation d'un compte</div>
     <div class="card-body" >
@@ -65,4 +25,10 @@
         </div>
     </div>
 </div>
+
+<div class="card-footer">
+    <a class="btn btn-success btn-lg"  (click)="add()"> Cliquez ici pour ajouter votre compte ! :)<i
+        class="bi bi-plus-square"></i></a>
+</div>
+
 

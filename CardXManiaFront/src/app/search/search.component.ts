@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Carte } from 'src/model';
+import { SearchService } from './search-http.service';
 
 @Component({
   selector: 'app-search',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  constructor(private searchService: SearchService) { }
 
   ngOnInit(): void {
   }
@@ -15,5 +17,11 @@ export class SearchComponent implements OnInit {
   list(): Array<Carte> {
     return this.searchService.findAll();
   }
+  
+
+  edit(id: number) {
+    this.searchService.findById(id);
+  }
+
 
 }
