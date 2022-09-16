@@ -12,4 +12,8 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  list(): Array<Carte> {
+    return this.searchService.findAll();
+  }
+
 }
